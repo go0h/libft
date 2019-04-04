@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/04/04 19:22:52 by astripeb         ###   ########.fr        #
+#    Updated: 2019/04/04 20:24:44 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ft_display_file
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c99
 
 OBJ = *.o
 

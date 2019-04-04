@@ -6,23 +6,14 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:47:35 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 19:47:54 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/04 20:46:45 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isalpha(char *str)
+int			ft_isalpha(int c)
 {
-	int		i;
-	int		flag;
-
-	flag = 1;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] > 64 && str[i] < 91) || (str[i] > 96 && str[i] < 123))
-			++i;
+		if ((c > 64 && c < 91) || (c > 96 && c < 123))
+			return (1);
 		else
 			return (0);
-	}
-	return (1);
 }

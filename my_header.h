@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:35:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 20:26:29 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/04 21:46:29 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,18 @@ int		ft_strcmp(char *s1, char *s2);
 
 int		ft_strncmp(char *s1, char *s2, int n);
 
-int		ft_isalpha(char *str);
+int		ft_isalpha(int c);
 
-int		ft_isdigit(char *str);
+int		ft_isdigit(int c);
 
-int		ft_isprint(char *str);
+int		ft_isprint(int c);
 
-char	*ft_toupper(char *str);
+int		ft_toupper(int c);
 
-char	*ft_tolower(char *str);
+int		ft_tolower(int c);
+
+size_t	ft_strlen(const char *c);
+
+char	*ft_strdup(const char *s1);
 
 #endif

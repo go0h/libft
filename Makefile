@@ -6,11 +6,11 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/04/04 20:24:44 by astripeb         ###   ########.fr        #
+#    Updated: 2019/04/04 21:11:17 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_display_file
+NAME = test_libft
 
 CC = gcc
 
@@ -20,7 +20,7 @@ OBJ = *.o
 
 SOURCES = *.c
 
-all: bin d_file
+all: bin d_file clean
 
 d_file:
 	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJ)

@@ -6,20 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:50:30 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 19:50:49 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/04 21:00:50 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char		*ft_toupper(char *str)
+int		ft_toupper(int c)
 {
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] > 96 && str[i] < 123)
-			str[i] -= 32;
-		++i;
-	}
-	return (str);
+	if (c > 96 && c < 123)
+		return(c -= 32);
+	return (c);
 }

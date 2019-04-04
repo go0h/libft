@@ -6,23 +6,14 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:49:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 19:49:56 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/04 20:47:23 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isprint(char *str)
+int			ft_isprint(char c)
 {
-	int		i;
-	int		flag;
-
-	flag = 1;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] > 31 && str[i] <= 127)
-			++i;
-		else
-			return (0);
-	}
-	return (1);
+	if (c > 31 && c < 127)
+		return (1);
+	else
+		return (0);
 }

@@ -6,20 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:51:15 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 19:51:29 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/04 21:00:37 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char		*ft_tolower(char *str)
+int		ft_tolower(int c)
 {
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] > 64 && str[i] < 91)
-			str[i] += 32;
-		++i;
-	}
-	return (str);
+	if (c > 64 && c < 91)
+		return (c += 32);
+	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 10:24:25 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 20:27:24 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/04 21:41:39 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			main(void)
 	int n;
 	
 	//ATOI
-	printf("ATOI\n");
+	printf("\nATOI\n");
 	printf("%d = %d\n", atoi("dwf24ss"), ft_atoi("dwf24ss"));
 	printf("%d = %d\n", atoi("--324ss"), ft_atoi("--324ss"));
 	printf("%d = %d\n", atoi("-324ss"), ft_atoi("-324ss"));
@@ -28,7 +28,7 @@ int			main(void)
 	printf("%d = %d\n", atoi("999999999999"), ft_atoi("999999999999"));
 	
 	/*//STRCPY
-	printf("STRCPY\n");
+	printf("\nSTRCPY\n");
 	char str4[] = "alloha";
 	char str5[] = "hi";
 	char *str6;
@@ -39,7 +39,7 @@ int			main(void)
 	//STRNCPY
 	int n;
 	n = 10;
-	printf("STRNCPY\n");
+	printf("\nSTRNCPY\n");
 	char str_ex04_1[] = "Privet, kak dela?";
 	char str_ex04_2[15];
 	char *str_ex04_3;
@@ -48,7 +48,7 @@ int			main(void)
 	puts(str_ex04_1);
 
 	//STRSTR
-	printf("STRSTR\n");
+	printf("\nSTRSTR\n");
 	char ex05_1[] = "aaaaManaaaa";
 	char ex05_2[] = "aMan";
 	char *ex05_3;
@@ -60,7 +60,7 @@ int			main(void)
 	printf("%s\n%s\n", ex05_4, ex05_3);*/
 
 	//STRCMP
-	printf("STRCMP\n");
+	printf("\nSTRCMP\n");
 	char ex06_1[] = "Hello";
 	char ex06_2[] = "Hello";
 	char ex06_3[] = "Hi";
@@ -69,7 +69,7 @@ int			main(void)
 	printf("%d = %d\n", strcmp(ex06_1, ex06_3), ft_strcmp(ex06_1, ex06_3));
 	
 	//STRNCMP
-	printf("STRNCMP\n");
+	printf("\nSTRNCMP\n");
 	char ex07_1[] = "Privet kak dela?";
 	char ex07_2[] = "Zdarov kak dela?";
 	char ex07_3[] = "Privet kak dela?";
@@ -79,38 +79,88 @@ int			main(void)
 	printf("%d = %d\n", strncmp(ex07_1, ex07_3, n), ft_strncmp(ex07_1, ex07_3, n));
 
 	//TOUPPER
-	printf("TOUPPER\n");
-	printf("%s == %d\n", ex07_1, ft_toupper(ex07_1));
+	printf("\nTOUPPER\n");
+	char to_up1[] = "privet_kak_dela?";
+	int i = 0;
+	while (to_up1[i] != '\0')
+	{
+		to_up1[i] = toupper(to_up1[i]);
+		++i;
+	}
+	printf("%s\n", to_up1);
+	i = 0;
+	while (to_up1[i] != '\0')
+	{
+		to_up1[i] = tolower(to_up1[i]);
+		++i;
+	}
+	i = 0;
+	while (to_up1[i] != '\0')
+	{
+		to_up1[i] = ft_toupper(to_up1[i]);
+		++i;
+	}
+	printf("%s\n", to_up1);
 	
 	//TOLOWER
-	printf("TOLOWER\n");
-	printf("%s == %d\n", ex07_1, ft_tolower(ex07_1));
+	printf("\nTOLOWER\n");
+	i = 0;
+	while (to_up1[i] != '\0')
+	{
+		to_up1[i] = tolower(to_up1[i]);
+		++i;
+	}
+	printf("%s\n", to_up1);
+	i = 0;
+	while (to_up1[i] != '\0')
+	{
+		to_up1[i] = toupper(to_up1[i]);
+		++i;
+	}
+	i = 0;
+	while (to_up1[i] != '\0')
+	{
+		to_up1[i] = ft_tolower(to_up1[i]);
+		++i;
+	}
+	printf("%s\n", to_up1);
 
 	//ISALPHA
-	printf("ISALPHA\n");
-	char ex11_1[] = "salutcommenttuvas";
-	char ex11_2[] = "salut c1omment tu vas ";
-	char ex11_3[] = "\0";
-	printf("%d = %d\n", isalpha(ex11_1), ft_isalpha(ex11_1));
-	printf("%d = %d\n", isalpha(ex11_1), ft_isalpha(ex11_2));
-	printf("%d = %d\n", isalpha(ex11_1), ft_isalpha(ex11_3));
+	printf("\nISALPHA\n");
+	int a = 65;
+	int b = 97;
+	int c = 13;
+	printf("%d = %d\n", isalpha(a), ft_isalpha(a));
+	printf("%d = %d\n", isalpha(b), ft_isalpha(b));
+	printf("%d = %d\n", isalpha(c), ft_isalpha(c));
 
 	//ISDIGIT
-	printf("ISDIGIT\n");
-	char ex12_1[] = "1111357809867";
-	char ex12_2[] = "salut c1omment tu vas ";
-	char ex12_3[] = "\0";
-	printf("%d = %d\n", isdigit(ex12_1), ft_isdigit(ex12_1));
-	printf("%d = %d\n", isdigit(ex12_1), ft_isdigit(ex12_2));
-	printf("%d = %d\n", isdigit(ex12_1), ft_isdigit(ex12_3));
+	printf("\nISDIGIT\n");
+	a = 48;
+	b = 57;
+	c = 30;
+	printf("%d = %d\n", isdigit(a), ft_isdigit(a));
+	printf("%d = %d\n", isdigit(b), ft_isdigit(b));
+	printf("%d = %d\n", isdigit(c), ft_isdigit(c));
 	
 	//ISPRINT
-	printf("ISPRINT\n");
-	char ex15_1[] = " LDSLDSAsdasdDSADAS";
-	char ex15_2[] = "salusadr4\t0fjc\n;dJ:A";
-	char ex15_3[] = "\0";
-	printf("%d = %d\n", isprint(ex15_1), ft_isprint(ex15_1));
-	printf("%d = %d\n", isprint(ex15_1), ft_isprint(ex15_2));
-	printf("%d = %d\n", isprint(ex15_1), ft_isprint(ex15_3));
+	printf("\nISPRINT\n");
+	a = 32;
+	b = 126;
+	c = 127;
+	int d = 13;
+	printf("%d = %d\n", isprint(a), ft_isprint(a));
+	printf("%d = %d\n", isprint(b), ft_isprint(b));
+	printf("%d = %d\n", isprint(c), ft_isprint(c));
+	printf("%d = %d\n", isprint(d), ft_isprint(d));
+	
+	//STRLEN
+	printf("\nSTRLEN\n");
+	const char s1[] = "Privet, kak dela?";
+	const char s2[] = "\0";
+	const char s3[] = "";
+	printf("%zu = %zu\n", strlen(s1), ft_strlen(s1));
+	printf("%zu = %zu\n", strlen(s2), ft_strlen(s2));
+	printf("%zu = %zu\n", strlen(s3), ft_strlen(s3));
 	return (0);
 }

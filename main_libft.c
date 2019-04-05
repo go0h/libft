@@ -15,7 +15,7 @@
 int			main(void)
 {
 	int n;
-	
+
 	//ATOI
 	printf("\nATOI\n");
 	printf("%d = %d\n", atoi("dwf24ss"), ft_atoi("dwf24ss"));
@@ -26,7 +26,7 @@ int			main(void)
 	printf("%d = %d\n", atoi("\b\t\n-213s5"), ft_atoi("\b\t\n-213s5"));
 	printf("%d = %d\n", atoi("    99999"), ft_atoi("    99999"));
 	printf("%d = %d\n", atoi("999999999999"), ft_atoi("999999999999"));
-	
+
 	/*//STRCPY
 	printf("\nSTRCPY\n");
 	char str4[] = "alloha";
@@ -67,7 +67,7 @@ int			main(void)
 	printf("%d = %d\n", strcmp(ex06_1, ex06_2), ft_strcmp(ex06_1, ex06_2));
 	printf("%d = %d\n", strcmp(ex06_3, ex06_2), ft_strcmp(ex06_3, ex06_2));
 	printf("%d = %d\n", strcmp(ex06_1, ex06_3), ft_strcmp(ex06_1, ex06_3));
-	
+
 	//STRNCMP
 	printf("\nSTRNCMP\n");
 	char ex07_1[] = "Privet kak dela?";
@@ -101,7 +101,7 @@ int			main(void)
 		++i;
 	}
 	printf("%s\n", to_up1);
-	
+
 	//TOLOWER
 	printf("\nTOLOWER\n");
 	i = 0;
@@ -142,7 +142,7 @@ int			main(void)
 	printf("%d = %d\n", isdigit(a), ft_isdigit(a));
 	printf("%d = %d\n", isdigit(b), ft_isdigit(b));
 	printf("%d = %d\n", isdigit(c), ft_isdigit(c));
-	
+
 	//ISPRINT
 	printf("\nISPRINT\n");
 	a = 32;
@@ -153,7 +153,7 @@ int			main(void)
 	printf("%d = %d\n", isprint(b), ft_isprint(b));
 	printf("%d = %d\n", isprint(c), ft_isprint(c));
 	printf("%d = %d\n", isprint(d), ft_isprint(d));
-	
+
 	//STRLEN
 	printf("\nSTRLEN\n");
 	const char s1[] = "Privet, kak dela?";
@@ -162,5 +162,17 @@ int			main(void)
 	printf("%zu = %zu\n", strlen(s1), ft_strlen(s1));
 	printf("%zu = %zu\n", strlen(s2), ft_strlen(s2));
 	printf("%zu = %zu\n", strlen(s3), ft_strlen(s3));
+
+	//STRDUP
+	printf("\nSTRDUP\n");
+	char s4[] = "Privet, kak dela?";
+	char *s5;
+	char *s6;
+	s5 = strdup(s4);
+	s5[0] = 'Z';
+	s6 = strdup(s4);
+	s6[0] = 'Z';
+	printf("sys = %s == %s\n", s4, s5);
+	printf("work = %s == %s\n", s4, s6);
 	return (0);
 }

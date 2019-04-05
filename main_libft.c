@@ -27,37 +27,42 @@ int			main(void)
 	printf("%d = %d\n", atoi("    99999"), ft_atoi("    99999"));
 	printf("%d = %d\n", atoi("999999999999"), ft_atoi("999999999999"));
 
-	/*//STRCPY
+	//STRCPY
 	printf("\nSTRCPY\n");
 	char str4[] = "alloha";
 	char str5[] = "hi";
-	char *str6;
-	//str6 = ft_strcpy(str5, str4);
-	str6 = ft_strcpy(str5, str4);
-	printf("%s == %s == %s\n", str4, str5, str6);
+	char str6[] = "alloha";
+	char str7[] = "hi";
+	char *str8;
+	str8 = strcpy(str5, str4);
+	printf("standart: %s == %s == %s\n", str4, str5, str8);
+	str8 = ft_strcpy(str7, str6);
+	printf("testing:  %s == %s == %s\n", str6, str7, str8);
 
 	//STRNCPY
-	int n;
-	n = 10;
+	size_t l = 10;
 	printf("\nSTRNCPY\n");
-	char str_ex04_1[] = "Privet, kak dela?";
-	char str_ex04_2[15];
-	char *str_ex04_3;
-	str_ex04_3 = ft_strncpy(str_ex04_2, str_ex04_1, n);
-	printf("%s = %s\n", str_ex04_2, str_ex04_3);
-	puts(str_ex04_1);
+	char str9[] = "Privet, kak dela?";
+	char str10[15];
+	char str11[15];
+	char *str12;
+	str12 = strncpy(str10, str9, l);
+	printf("standart: %s\t%s = %s\n", str9, str10, str12);
+	str12 = ft_strncpy(str11, str9, l);
+	printf("testing:  %s\t%s = %s\n", str9, str11, str12);
+
 
 	//STRSTR
 	printf("\nSTRSTR\n");
-	char ex05_1[] = "aaaaManaaaa";
-	char ex05_2[] = "aMan";
+	char ex05_1[] = "aaaManaaaa";
+	char ex05_2[] = "aMaan";
 	char *ex05_3;
 	ex05_3 = strstr(ex05_1, ex05_2);
-	printf("%s\n%s\n", ex05_1, ex05_3);
-	char ex05_4[] = "aaaaManaaaa";
-	char ex05_5[] = "aMan";
+	printf("standart: %s\t%s\n", ex05_1, ex05_3);
+	char ex05_4[] = "aaaManaaaa";
+	char ex05_5[] = "aMaan";
 	ex05_3 = ft_strstr(ex05_4, ex05_5);
-	printf("%s\n%s\n", ex05_4, ex05_3);*/
+	printf("testing:  %s\t%s\n", ex05_4, ex05_3);
 
 	//STRCMP
 	printf("\nSTRCMP\n");
@@ -172,7 +177,7 @@ int			main(void)
 	s5[0] = 'Z';
 	s6 = strdup(s4);
 	s6[0] = 'Z';
-	printf("sys = %s == %s\n", s4, s5);
+	printf("sys  = %s == %s\n", s4, s5);
 	printf("work = %s == %s\n", s4, s6);
 	return (0);
 }

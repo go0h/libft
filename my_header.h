@@ -38,4 +38,10 @@ size_t	ft_strlen(const char *c);
 
 char	*ft_strdup(const char *s1);
 
+char *ft_strcpy(char *dest, const char *src);
+
+char *ft_strncpy(char *dest, const char *src, size_t n);
+
+char *ft_strstr(const char *haystack, const char *needle);
+
 #endif

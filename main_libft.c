@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 10:24:25 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 21:41:39 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/05 21:48:31 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int			main(void)
 	char str6[] = "alloha";
 	char str7[] = "hi";
 	char *str8;
-	str8 = strcpy(str5, str4);
+	str8 = strcpy(str4, str5);
 	printf("standart: %s == %s == %s\n", str4, str5, str8);
-	str8 = ft_strcpy(str7, str6);
+	str8 = ft_strcpy(str6, str7);
 	printf("testing:  %s == %s == %s\n", str6, str7, str8);
 
 	//STRNCPY
@@ -50,19 +50,6 @@ int			main(void)
 	printf("standart: %s\t%s = %s\n", str9, str10, str12);
 	str12 = ft_strncpy(str11, str9, l);
 	printf("testing:  %s\t%s = %s\n", str9, str11, str12);
-
-
-	//STRSTR
-	printf("\nSTRSTR\n");
-	char ex05_1[] = "aaaManaaaa";
-	char ex05_2[] = "aMaan";
-	char *ex05_3;
-	ex05_3 = strstr(ex05_1, ex05_2);
-	printf("standart: %s\t%s\n", ex05_1, ex05_3);
-	char ex05_4[] = "aaaManaaaa";
-	char ex05_5[] = "aMaan";
-	ex05_3 = ft_strstr(ex05_4, ex05_5);
-	printf("testing:  %s\t%s\n", ex05_4, ex05_3);
 
 	//STRCMP
 	printf("\nSTRCMP\n");
@@ -179,5 +166,73 @@ int			main(void)
 	s6[0] = 'Z';
 	printf("sys  = %s == %s\n", s4, s5);
 	printf("work = %s == %s\n", s4, s6);
+
+
+	//STRSTR
+	printf("\nSTRSTR\n");
+	char ex05_1[] = "12345123456";
+	char ex05_2[] = "456";
+	char *ex05_3;
+	ex05_3 = strstr(ex05_1, ex05_2);
+	printf("standart: %s\t%s\n", ex05_1, ex05_3);
+	char ex05_4[] = "12345123456";
+	char ex05_5[] = "456";
+	ex05_3 = ft_strstr(ex05_4, ex05_5);
+	printf("testing:  %s\t%s\n", ex05_4, ex05_3);
+
+
+	//STRNSTR
+	printf("\nSTRNSTR\n");
+	size_t k = 100;
+	char strnstr1[] = "12345123456";
+	char strnstr2[] = "456";
+	char *strnstr3;
+	strnstr3 = strnstr(strnstr1, strnstr2, k);
+	printf("standart: %s\t%s\n", strnstr1, strnstr3);
+	char strnstr4[] = "12345123456";
+	char strnstr5[] = "456";
+	strnstr3 = ft_strnstr(strnstr4, strnstr5, k);
+	printf("testing:  %s\t%s\n", strnstr4, strnstr3);
+	
+	
+	//STRCAT
+	printf("\nSTRCAT\n");
+	char *strcat1 = (char*)malloc(sizeof(char) * 100);
+	char *strcat2 = (char*)malloc(sizeof(char) * 100);
+	const char strcat3[] = "Privet,";
+	const char strcat4[] = " kak";
+	const char strcat5[] = " dela?";
+	strcat1 = strcat(strcat1, strcat3);
+	strcat1 = strcat(strcat1, strcat4);
+	strcat1 = strcat(strcat1, strcat5);
+	strcat2 = ft_strcat(strcat2, strcat3);
+	strcat2 = ft_strcat(strcat2, strcat4);
+	strcat2 = ft_strcat(strcat2, strcat5);
+	printf("standart: %s\n", strcat1);
+	printf("testing:  %s\n", strcat2);
+	free(strcat1);
+	free(strcat2);
+	
+	
+	//STRNCAT
+	printf("\nSTRNCAT\n");
+	l = 3;
+	const char strncat3[] = "Privet,";
+	const char strncat4[] = " kak";
+	const char strncat5[] = " dela?";
+	char *strncat1 = (char*)malloc(sizeof(char) * 100);
+	char *strncat2 = (char*)malloc(sizeof(char) * 100);
+	strncat1 = strncat(strncat1, strncat3, l);
+	strncat1 = strncat(strncat1, strncat4, l);
+	strncat1 = strncat(strncat1, strncat5, l);
+	strncat2 = strncat(strncat2, strncat3, l);
+	strncat2 = strncat(strncat2, strncat4, l);
+	strncat2 = strncat(strncat2, strncat5, l);
+	printf("standart: %s\n", strncat1);
+	printf("testing:  %s\n", strncat2);
+	free(strncat1);
+	free(strncat2);
+	
+	
 	return (0);
 }

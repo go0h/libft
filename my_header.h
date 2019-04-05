@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:35:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 21:46:29 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/05 21:04:04 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,16 @@ size_t	ft_strlen(const char *c);
 
 char	*ft_strdup(const char *s1);
 
-char *ft_strcpy(char *dest, const char *src);
+char	*ft_strcpy(char *dest, const char *src);
 
-char *ft_strncpy(char *dest, const char *src, size_t n);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
 
-char *ft_strstr(const char *haystack, const char *needle);
+char	*ft_strstr(const char *haystack, const char *needle);
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+
+char	*ft_strcat(char *restrict s1, const char *restrict s2);
+
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);
 
 #endif

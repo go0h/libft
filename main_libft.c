@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 10:24:25 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/05 21:48:31 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/06 11:30:46 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int			main(void)
 	printf("%d = %d\n", atoi("\b\t\n-213s5"), ft_atoi("\b\t\n-213s5"));
 	printf("%d = %d\n", atoi("    99999"), ft_atoi("    99999"));
 	printf("%d = %d\n", atoi("999999999999"), ft_atoi("999999999999"));
+	printf("%d = %d\n", atoi("2147483647"), ft_atoi("2147483647"));
+	printf("%d = %d\n", atoi("-2147483648"), ft_atoi("-2147483648"));
+	printf("%d = %d\n", atoi("-21474836489"), ft_atoi("-21474836489"));
 
 	//STRCPY
 	printf("\nSTRCPY\n");
@@ -217,9 +220,10 @@ int			main(void)
 	//STRNCAT
 	printf("\nSTRNCAT\n");
 	l = 3;
+	const char strncat00[] = "STRNCAT";
 	const char strncat3[] = "Privet,";
-	const char strncat4[] = " kak";
-	const char strncat5[] = " dela?";
+	const char strncat4[] = " kak ";
+	const char strncat5[] = "dela?";
 	char *strncat1 = (char*)malloc(sizeof(char) * 100);
 	char *strncat2 = (char*)malloc(sizeof(char) * 100);
 	strncat1 = strncat(strncat1, strncat3, l);
@@ -232,7 +236,21 @@ int			main(void)
 	printf("testing:  %s\n", strncat2);
 	free(strncat1);
 	free(strncat2);
-	
+
+
+	//STRLCAT
+	printf("\nSTRLCAT\n");
+	l = 100;
+	const char strLcat00[] = "STRLCAT";
+	char *strlcat1 = (char*)malloc(l);
+	char *strlcat2 = (char*)malloc(l);
+	const char strlcat3[] = "Privet,";
+	const char strlcat4[] = " kak ";
+	const char strlcat5[] = "dela?";
+	printf("standard: 1 = %zu, 2 = %zu, 3 = %zu: %s\n", strlcat(strlcat1, strlcat3, l),\
+			strlcat(strlcat1, strlcat4, l), strlcat(strlcat1, strlcat5, l), strlcat1);
+	printf("testing:  1 = %zu, 2 = %zu, 3 = %zu: %s\n", ft_strlcat(strlcat2, strlcat3, l),\
+			ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);
 	
 	return (0);
 }

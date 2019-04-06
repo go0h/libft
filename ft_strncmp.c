@@ -6,11 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:44:31 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 19:44:46 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/06 10:31:17 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_strncmp(char *s1, char *s2, unsigned int n)
+#include <string.h>
+
+int			ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int i;
 

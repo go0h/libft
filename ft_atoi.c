@@ -6,15 +6,15 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:46:43 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 19:46:45 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/06 10:27:13 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int			negative(char *str, int i);
+static int			negative(const char *str, int i);
 
-static int			tabs(char *str);
+static int			tabs(const char *str);
 
-int			ft_atoi(char *str)
+int					ft_atoi(const char *str)
 {
 	int			i;
 	int			nb;
@@ -42,7 +42,7 @@ int			ft_atoi(char *str)
 	return (nb);
 }
 
-static int			negative(char *str, int i)
+static int			negative(const char *str, int i)
 {
 	if (str[i] == '-' && (str[i + 1] > 47 && str[i + 1] < 58))
 		return (-1);
@@ -51,7 +51,7 @@ static int			negative(char *str, int i)
 	return (0);
 }
 
-static int			tabs(char *str)
+static int			tabs(const char *str)
 {
 	int i;
 

@@ -184,7 +184,7 @@ int			main(void)
 	printf("testing:  %s\t%s\n", ex05_4, ex05_3);
 
 
-	//STRNSTR
+	/*//STRNSTR
 	printf("\nSTRNSTR\n");
 	size_t k = 100;
 	char strnstr1[] = "12345123456";
@@ -195,7 +195,7 @@ int			main(void)
 	char strnstr4[] = "12345123456";
 	char strnstr5[] = "456";
 	strnstr3 = ft_strnstr(strnstr4, strnstr5, k);
-	printf("testing:  %s\t%s\n", strnstr4, strnstr3);
+	printf("testing:  %s\t%s\n", strnstr4, strnstr3);*/
 	
 	
 	//STRCAT
@@ -238,7 +238,7 @@ int			main(void)
 	free(strncat2);
 
 
-	//STRLCAT
+	/*//STRLCAT
 	printf("\nSTRLCAT\n");
 	l = 100;
 	const char strLcat00[] = "STRLCAT";
@@ -251,6 +251,6 @@ int			main(void)
 			strlcat(strlcat1, strlcat4, l), strlcat(strlcat1, strlcat5, l), strlcat1);
 	printf("testing:  1 = %zu, 2 = %zu, 3 = %zu: %s\n", ft_strlcat(strlcat2, strlcat3, l),\
 			ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);
-	
+	*/
 	return (0);
 }

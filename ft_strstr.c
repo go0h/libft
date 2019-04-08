@@ -12,10 +12,6 @@
 
 #include "libft.h"
 
-static int     ft_strncmp(const char *s1, const char *s2, unsigned int n);
-
-static int     ft_strlen(const char *s);
-
 char           *ft_strstr(const char *haystack, const char *needle)
 {
      unsigned int i;
@@ -36,28 +32,4 @@ char           *ft_strstr(const char *haystack, const char *needle)
           ++i;
      }
      return (NULL);
-}
-
-static int     ft_strncmp(const char *s1, const char *s2, unsigned int n)
-{
-	unsigned int i;
-
-	if (n <= 0)
-		return (0);
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && i < n - 1)
-	{
-		i++;
-	}
-	return (s1[i] - s2[i]);
-}
-
-static int     ft_strlen(const char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
-		++i;
-	return (i);
 }

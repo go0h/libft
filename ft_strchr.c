@@ -3,14 +3,23 @@
 
 char	  *ft_strchr(const char *s, int c)
 {
-	 char c_ch;
+	 unsigned char c_ch;
+	 unsigned char *s_ch;
+	 unsigned int i;
 
-	 c_ch = (char)c;
-	 while (*s)
+	 i = 0;
+	 if (s == NULL)
+		return (NULL);
+	 c_ch = (unsigned char)c;
+	 s_ch = (unsigned char*)s;
+	 while (s_ch[i])
 	 {
-		  if (*s == c_ch)
-				return ((char*)s);
-		  s++;
+		  if (s_ch[i] == c_ch)
+			return ((char*)&s_ch[i]);
+		  i++;
 	 }
-	 return ((char*)s);
+	 if (s_ch[i] == c_ch)
+		return ((char*)&s_ch[i]);
+	else
+		return (NULL);
 }

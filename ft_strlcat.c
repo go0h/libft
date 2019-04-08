@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 static size_t	ft_strlen(const char *str);
 
-size_t			ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
+size_t			ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t len_dst;
 	size_t len_src;
@@ -45,4 +45,4 @@ static size_t	ft_strlen(const char *str)
 	while(str[i] != '\0')
 		++i;
 	return (i);
-}	
+}

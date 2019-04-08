@@ -1,5 +1,5 @@
 
-#include <string.h>
+#include "libft.h"
 
 void	  *ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -8,7 +8,7 @@ void	  *ft_memmove(void *dest, const void *src, size_t n)
 	 unsigned const char *src_ch;
 
 	 dest_ch = (unsigned char*)dest;
-	 src_ch = (unsigned const char*)src_ch;
+	 src_ch = (unsigned const char*)src;
 	 i = 0;
 	 if (dest_ch == NULL || src_ch == NULL)
 		  return (NULL);
@@ -23,11 +23,12 @@ void	  *ft_memmove(void *dest, const void *src, size_t n)
 	 else
 	 {
 		  i = n - 1;
-		  while (i >= 0)
+		  while (i)
 		  {
 				dest_ch[i] = src_ch[i];
 				--i;
 		  }
+		  dest_ch[i] = src_ch[i];
 	 }
 	 return (dest);
 }

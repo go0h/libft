@@ -12,7 +12,10 @@
 
 int			ft_isalpha(int c)
 {
-		if ((c > 64 && c < 91) || (c > 96 && c < 123))
+		unsigned char c_ch;
+
+		c_ch = (unsigned char)c;
+		if ((c_ch > 64 && c_ch < 91) || (c_ch > 96 && c_ch < 123))
 			return (1);
 		else
 			return (0);

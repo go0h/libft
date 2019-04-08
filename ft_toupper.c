@@ -12,7 +12,10 @@
 
 int		ft_toupper(int c)
 {
-	if (c > 96 && c < 123)
-		return(c -= 32);
-	return (c);
+	unsigned char c_ch;
+
+	c_ch = (unsigned char)c;
+	if (c_ch > 96 && c_ch < 123)
+		return(c_ch -= 32);
+	return (c_ch);
 }

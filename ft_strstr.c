@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 static int     ft_strncmp(const char *s1, const char *s2, unsigned int n);
 

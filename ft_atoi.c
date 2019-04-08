@@ -56,7 +56,7 @@ static int			tabs(const char *str)
 	int i;
 
 	i = 0;
-	while (str[i] > 8 & str[i] < 14 || str[i] == 32)
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
 		++i;
 	return (i);
 }

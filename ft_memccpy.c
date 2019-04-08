@@ -1,5 +1,5 @@
 
-#include <string.h>
+#include "libft.h"
 
 void	  *ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
@@ -20,6 +20,7 @@ void	  *ft_memccpy(void *dest, const void *src, int c, size_t n)
 				++i;
 				return ((void*)&dest_ch[i]);
 		  }
+		  dest_ch[i] = src_ch[i];
 		  ++i;
 	 }
 	 return (NULL);

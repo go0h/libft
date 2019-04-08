@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = test_libft
 
 CC = gcc
 
@@ -18,15 +18,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJ = *.o
 
-SOURCES = *.c
+SOURCES = main_libft.c
 
-all: bin $(NAME)
+all: d_file clean
+
+d_file:
+	@ $(CC) $(CFLAGS) $(SOURCES) -L../ -lft -o $(NAME)
 
 bin:
-	@ $(CC) $(CFLAGS) -c $(SOURCES)
-
-$(NAME):
-	@ ar rc $(NAME) $(OBJ)
+	@ $(CC) -c $(SOURCES)
 
 clean:
 	@ rm -f $(OBJ)

@@ -1,7 +1,10 @@
 
 int	  ft_isascii(int c)
 {
-	 if (c >= 0 && c < 128)
+	 unsigned char c_ch;
+
+	 c_ch = (unsigned char)c;
+	 if (c_ch)
 	 {
 		  return (1);
 	 }

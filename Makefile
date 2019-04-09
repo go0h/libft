@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/04/09 18:51:39 by astripeb         ###   ########.fr        #
+#    Updated: 2019/04/09 19:15:34 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ SOURCES =  ft_memset.c\
 	ft_memalloc.c\
 	ft_memdel.c\
 	ft_strnew.c\
-	ft_strdel.c
+	ft_strdel.c\
+	ft_strclr.c
 
 all: bin $(NAME) clean
 

@@ -6,13 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 16:57:41 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 18:41:48 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/09 19:42:53 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void      ft_memdel(void **ap)
+void	ft_memdel(void **ap)
 {
 	if (ap && *ap)
 	{

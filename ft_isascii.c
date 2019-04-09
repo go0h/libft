@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/09 20:16:38 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/09 20:17:11 by astripeb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-int	  ft_isascii(int c)
+int		ft_isascii(int c)
 {
-	 unsigned char c_ch;
+	unsigned char c_ch;
 
-	 c_ch = (unsigned char)c;
-	 if (c_ch < 128)
-	 {
-		  return (1);
-	 }
-	 else
-	 {
-		  return (0);
-	 }
+	c_ch = (unsigned char)c;
+	if (c_ch < 128)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

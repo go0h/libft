@@ -57,5 +57,21 @@ int			main(void)
 		printf("STRDEL : OK\n");
 	else
 		printf("STRDEL : FAIL\n");
+	
+	//STRCLR
+	printf("\n32_STRCLR\n");
+	i = 0;
+	char *str_clr = ft_strdup("Privet kak dela?");
+	printf("input:  %s\n", str_clr);
+	len = ft_strlen(str_clr);
+	ft_strclr(str_clr);	
+	printf("output: ");
+	while (i < len)
+	{
+		printf("%d", str_clr[i]);
+		++i;
+	}
+	free(str_clr);
+	printf("\n");
      return (0);
 }

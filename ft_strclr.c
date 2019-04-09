@@ -6,9 +6,11 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 18:52:54 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 18:54:01 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/09 19:20:29 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_strclr(char *s)
 {
@@ -17,6 +19,10 @@ void	ft_strclr(char *s)
 	i = 0;
 	if (s != NULL)
 	{
-		while(
+		while (s[i] != '\0')
+		{
+			s[i] = '\0';
+			++i;
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 10:24:25 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/06 11:30:46 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:49:02 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ int			main(void)
 	char m21[] =   "Privet, kak dela?";
 	char m22[] =   "Privet, kak dela?";
 	char m23[] =   "Privet, tak dela!";
-	printf("%d = %d\n", memcmp(m21, m22, l), ft_memcmp(m21, m22, l));
-	printf("%d = %d\n", memcmp(m21, m23, l), ft_memcmp(m21, m23, l));
-	printf("%d = %d\n", memcmp(m23, m21, l), ft_memcmp(m23, m21, l));
+	printf("%d = %d\n", memcmp((void*)m21, (void*)m22, l), ft_memcmp((void*)m21, (void*)m22, l));
+	printf("%d = %d\n", memcmp((void*)m21, (void*)m23, l), ft_memcmp((void*)m21, (void*)m23, l));
+	printf("%d = %d\n", memcmp((void*)m23, (void*)m21, l), ft_memcmp((void*)m23, (void*)m21, l));
 
 	//STRLEN
 	printf("\n8_STRLEN\n");
@@ -183,7 +183,7 @@ int			main(void)
 	free(strncat1);
 	free(strncat2);
 
-	/*//STRLCAT
+	//STRLCAT
 	printf("\n14_STRLCAT\n");
 	l = 100;
 	char *strlcat1 = (char*)malloc(l);
@@ -194,7 +194,7 @@ int			main(void)
 	printf("standard: 1 = %d, 2 = %d, 3 = %d: %s\n", strlcat(strlcat1, strlcat3, l),\
 			strlcat(strlcat1, strlcat4, l), strlcat(strlcat1, strlcat5, l), strlcat1);
 	printf("testing:  1 = %zu, 2 = %zu, 3 = %zu: %s\n", ft_strlcat(strlcat2, strlcat3, l),\
-			ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);*/
+			ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);
 
 
 	//STRCHR
@@ -233,7 +233,7 @@ int			main(void)
 	printf("testing:  %s\t%s\n", ex05_4, ex05_3);
 
 
-	/*//STRNSTR
+	//STRNSTR
 	printf("\n18_STRNSTR\n");
 	size_t k = 100;
 	char strnstr1[] = "12345123456";
@@ -244,7 +244,7 @@ int			main(void)
 	char strnstr4[] = "12345123456";
 	char strnstr5[] = "456";
 	strnstr3 = ft_strnstr(strnstr4, strnstr5, k);
-	printf("testing:  %s\t%s\n", strnstr4, strnstr3);*/
+	printf("testing:  %s\t%s\n", strnstr4, strnstr3);
 
 	//STRCMP
 	printf("\n19_STRCMP\n");

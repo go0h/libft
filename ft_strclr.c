@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 19:49:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 16:39:33 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 18:52:54 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/09 18:54:01 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isprint(int c)
+void	ft_strclr(char *s)
 {
-	unsigned char c_ch;
+	size_t i;
 
-	c_ch = (unsigned char)c;
-	if (c_ch > 31 && c_ch < 127)
-		return (1);
-	else
-		return (0);
+	i = 0;
+	if (s != NULL)
+	{
+		while(
+	}
 }

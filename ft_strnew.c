@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 19:49:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 16:39:33 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 18:42:56 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/09 18:47:49 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isprint(int c)
-{
-	unsigned char c_ch;
+#include "libft.h"
 
-	c_ch = (unsigned char)c;
-	if (c_ch > 31 && c_ch < 127)
-		return (1);
-	else
-		return (0);
+char	*ft_strnew(size_t size)
+{
+	char *str;
+
+	str = ft_memalloc(size);
+	if (str == NULL)
+		return (NULL);
+	ft_bzero((void*)str, size);
+	return (str);
 }

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 19:49:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 16:39:33 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/09 18:52:23 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_isprint(int c)
-{
-	unsigned char c_ch;
+#include "libft.h"
 
-	c_ch = (unsigned char)c;
-	if (c_ch > 31 && c_ch < 127)
-		return (1);
-	else
-		return (0);
+void	ft_strdel(char **as)
+{
+	char *str;
+	
+	str = *as;
+	if (as != NULL)
+	{
+		if (str != NULL)
+		{
+			free(str);
+			str = NULL;
+		}
+		as = NULL;
+	}
 }

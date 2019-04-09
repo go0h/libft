@@ -1,23 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   my_header.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 19:35:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/06 10:47:07 by astripeb         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#ifndef	MY_HEADER_H
-# define MY_HEADER_H
+#ifndef	LIBFT_H
+# define LIBFT_H
 
 # include <string.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <stdio.h>
-# include <ctype.h>
 
 typedef struct      s_list
 {
@@ -26,7 +14,7 @@ typedef struct      s_list
      struct s_list  *next;
 }                   t_list;
 
-void	  ft_memset(void *s, int c, size_t n);
+void	  *ft_memset(void *s, int c, size_t n);
 
 void	  ft_bzero(void *s, size_t n);
 
@@ -74,7 +62,9 @@ int		ft_isdigit(int c);
 
 int		ft_isprint(int c);
 
-int	  ft_isacsii(int c);
+int		ft_isalnum(int c);
+
+int		ft_isascii(int c);
 
 int		ft_toupper(int c);
 

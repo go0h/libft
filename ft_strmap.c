@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:52:54 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 20:56:37 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 21:37:58 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/09 21:49:47 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	if (s != NULL)
+	char	*str;
+	size_t	len;
+	size_t	i;
+
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	str = ft_strnew(len + 1);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		while (*s)
-		{
-			*s = '\0';
-			++s;
-		}
+		str[i] = f(s[i]);
+		++i;
 	}
+	return (str);
 }

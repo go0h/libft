@@ -53,7 +53,15 @@ SOURCES =  ft_memset.c\
 	ft_strclr.c\
 	ft_striter.c\
 	ft_striteri.c\
-	ft_strmap.c
+	ft_strmap.c\
+	ft_strmapi.c\
+	ft_strequ.c\
+	ft_strnequ.c\
+	ft_strsub.c\
+	ft_strjoin.c\
+	ft_strtrim.c\
+	ft_strsplit.c\
+	ft_itoa.c
 
 all: bin $(NAME) clean
 

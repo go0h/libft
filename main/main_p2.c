@@ -17,11 +17,29 @@ char	f_map(char c)
 	return (c);
 }
 
+char	f_mapi(unsigned int i, char c)
+{
+	i = 0;
+	c = 'a';
+	return (c + i);
+}
+
+void	ft_printarr(char **s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+	{
+		printf("|%s|", s[i]);
+		++i;
+	}
+}
+
 int			main(void)
 {
 	//int n;
 	size_t i;
-	size_t j;
 	size_t len;
 
 	//MEMALLOC
@@ -42,7 +60,7 @@ int			main(void)
 	printf("\n30_MEMDEL\n");
 	i = 5;
 	len = 3;
-	j = 0;
+	//size_t j = 0;
 	char *memdel = (char*)ft_memalloc(sizeof(char) * len);
 	printf("MEMORY   ALLOCATED\n");
 	ft_memdel((void**)&memdel);
@@ -116,5 +134,88 @@ int			main(void)
 	printf("input:  %s\n", "Privet, kak dela?");
 	str_map = ft_strmap("Privet, kak dela?", &f_map);	
 	printf("output: %s\n", str_map);
+	
+	//STRMAPI
+	printf("\n36_STRMAPI\n");
+	i = 0;
+	char *str_mapi;
+	printf("input:  %s\n", "Privet, kak dela?");
+	str_mapi = ft_strmapi("Privet, kak dela?", &f_mapi);
+	printf("output: %s\n", str_mapi);
+	free(str_mapi);
+
+	//STREQU
+	printf("\n37_STREQU\n");
+	char *str_equ1;
+	char *str_equ2;
+	char *str_equ3;
+	str_equ1 = ft_strdup("Privet, kak dela?");
+	str_equ2 = ft_strdup("Privet, kak dela?");
+	str_equ3 = ft_strdup("Privet, tak dela!");
+	printf("1 = %d\n", ft_strequ(str_equ1, str_equ2));
+	printf("0 = %d\n", ft_strequ(str_equ1, str_equ3));
+	printf("0 = %d\n", ft_strequ(str_equ1, NULL));
+	printf("0 = %d\n", ft_strequ(NULL, NULL));
+	
+	//STRNEQU
+	printf("\n38_STRNEQU\n");
+	len = 15;
+	char *strnequ = ft_strdup("Privet");
+	printf("1 = %d\n", ft_strnequ(str_equ1, str_equ2, len));
+	printf("0 = %d\n", ft_strnequ(str_equ1, str_equ3, len));
+	printf("0 = %d\n", ft_strnequ(str_equ1, NULL, len));
+	printf("0 = %d\n", ft_strnequ(NULL, NULL, len));
+	printf("0 = %d\n", ft_strnequ(str_equ1, str_equ3, 100));
+	printf("1 = %d\n", ft_strnequ(str_equ1, str_equ2, len));
+	printf("0 = %d\n", ft_strnequ(strnequ, str_equ1, 100));
+	
+	//STRSUB
+	printf("\n39_STRSUB\n");
+	len = 15;
+	char *str_sub = ft_strdup("Privet, kak dela?");
+	printf("input:	  %s\n", str_sub);
+	printf("output1:  %s\n", ft_strsub(str_sub, 0, 7));
+	printf("output2:  %s\n", ft_strsub(str_sub, 8, 3));
+	printf("output3:  %s\n", ft_strsub(str_sub, 12, 5));
+	
+	//STRJOIN
+	printf("\n40_STRJOIN\n");
+	printf("%s\n", ft_strjoin("Privet, ", "kak dela?"));
+	printf("kak dela? == %s\n", ft_strjoin("", "kak dela?"));
+	printf("Privet, == %s\n", ft_strjoin("Privet, ", ""));
+	printf("0%s\n", ft_strjoin("",  ""));
+	
+	//STRTRIM
+	printf("\n41_STRTRIM\n");
+	printf("|%s|\n", ft_strtrim("\t\n Privet, kak dela?\t\n   "));
+	printf("|%s|\n", ft_strtrim("Privet, kak dela?"));
+	printf("|%s|\n", ft_strtrim("     "));
+	printf("|%s|\n", ft_strtrim(""));
+
+	//STRSPLIT
+	printf("\n42_STRSPLIT\n");
+	char **split1 = ft_strsplit("*****Privet,***kak**dela?***", '*');
+	ft_printarr(split1);
+	printf("\n");
+	char **split2 = ft_strsplit("*****Privet,***kak**dela?***", '-');
+	ft_printarr(split2);
+	printf("\n");
+	char **split3 = ft_strsplit("******", '*');
+	printf("0 = ");
+	ft_printarr(split3);
+	printf("\n");
+	
+	//ITOA
+	printf("\n43_ITOA\n");
+	printf("1 = %s\n", ft_itoa(1));
+	printf("-1 = %s\n", ft_itoa(-1));
+	printf("0 = %s\n", ft_itoa(0));
+	printf("-100 = %s\n", ft_itoa(-100));
+	printf("100 = %s\n", ft_itoa(100));
+	printf("1234567890 = %s\n", ft_itoa(1234567890));
+	printf("-1234567890 = %s\n", ft_itoa(-1234567890));
+	printf("2147483647 = %s\n", ft_itoa(2147483647));
+	printf("-2147483648 = %s\n", ft_itoa(-2147483648));
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:10:53 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 21:47:12 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 18:33:23 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,17 +116,17 @@ void			ft_putchar(char c);
 
 void			ft_putstr(char const *s);
 
-void    		ft_putendl(char const *s);
+void			ft_putendl(char const *s);
 
-void    		ft_putnbr(int n);
+void			ft_putnbr(int n);
 
-void    		ft_putchar_fd(char c, int fd);
+void			ft_putchar_fd(char c, int fd);
 
-void    		ft_putstr_fd(char const *s, int fd);
+void			ft_putstr_fd(char const *s, int fd);
 
-void    		ft_putendl_fd(char const *s, int fd);
+void			ft_putendl_fd(char const *s, int fd);
 
-void    		ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(int n, int fd);
 
 t_list			*ft_lstnew(void const *content, size_t content_size);
 
@@ -138,6 +138,6 @@ void			ft_lstadd(t_list **alst, t_list *new);
 
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
-t_list			*ft_lstmap(t_list *lst, t_list *(*f));
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/11 16:37:28 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/11 16:39:20 by astripeb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -10,7 +21,7 @@ static size_t	ft_count_words(char const *s, char c)
 	i = 0;
 	flag = 1;
 	count = 0;
-	while(s[i] != '\0')
+	while (s[i] != '\0')
 	{
 		if (s[i] == c && flag == 0)
 			flag = 1;
@@ -24,7 +35,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static size_t ft_strlenc(char const *s, char c)
+static size_t	ft_strlenc(char const *s, char c)
 {
 	size_t i;
 
@@ -34,12 +45,12 @@ static size_t ft_strlenc(char const *s, char c)
 	return (i);
 }
 
-static void	ft_freearr(char **s)
+static void		ft_freearr(char **s)
 {
 	size_t i;
 
-	i = 0;	
-	while(s[i])
+	i = 0;
+	while (s[i])
 	{
 		free(s[i]);
 		i++;
@@ -48,7 +59,7 @@ static void	ft_freearr(char **s)
 	s = NULL;
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;

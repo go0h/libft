@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/04/09 21:46:51 by astripeb         ###   ########.fr        #
+#    Updated: 2019/04/11 18:31:40 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,11 @@ OBJ = ft_memset.o\
 	ft_putendl_fd.o\
 	ft_putnbr_fd.o\
 	ft_lstnew.o\
-	ft_lstdelone.o
+	ft_lstdelone.o\
+	ft_lstdel.o\
+	ft_lstadd.o\
+	ft_lstiter.o\
+	ft_lstmap.o
 
 SOURCES =  ft_memset.c\
 	ft_bzero.c\
@@ -124,7 +128,11 @@ SOURCES =  ft_memset.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
 	ft_lstnew.c\
-	ft_lstdelone.c
+	ft_lstdelone.c\
+	ft_lstdel.c\
+	ft_lstadd.c\
+	ft_lstiter.c\
+	ft_lstmap.c
 
 all: bin $(NAME)
 

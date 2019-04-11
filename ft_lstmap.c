@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 16:42:46 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 16:43:25 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/11 18:23:32 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/11 19:16:48 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	i;
-	size_t	j;
-	char	*trim;
+	t_list *begin;
+	t_list *temp;
 
-	i = 0;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		++i;
-	j = ft_strlen(s);
-	if (j != 0)
-		j -= 1;
-	while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
-		--j;
-	++j;
-	if (i > j)
-		trim = ft_strnew(1);
-	else
+	if (lst != NULL)
 	{
-		trim = ft_strnew(j - i + 2);
-		if (trim == NULL)
-			return (NULL);
-		trim = ft_strncpy(trim, &s[i], j - i);
+		begin = f(lst);
+		temp = begin;
+		lst = lst->next;
+		while (lst != NULL)
+		{
+			temp->next = f(lst);
+			temp = temp->next;
+			lst = lst->next;
+		}
+		return (begin);
 	}
-	return (trim);
+	return (NULL);
 }

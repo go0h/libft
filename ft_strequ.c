@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/11 16:39:34 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/11 16:39:57 by astripeb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
 int		ft_strequ(char const *s1, char const *s2)
 {
-	unsigned char *s1u;
-	unsigned char *s2u;
-	size_t i;
+	unsigned char	*s1u;
+	unsigned char	*s2u;
+	size_t			i;
 
 	if (s1 == NULL || s2 == NULL)
 		return (0);

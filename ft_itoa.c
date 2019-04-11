@@ -1,6 +1,5 @@
 
 #include "libft.h"
-# define ABS(val) (val > 0 ? val : val * (-1))
 
 static size_t	ft_decn(int n)
 {
@@ -31,11 +30,11 @@ char	*ft_itoa(int n)
 		ar[0] = '-';
 	while (n / 10 != 0)
 	{
-		ar[len] = ABS(n % 10) + '0';
+		ar[len] = ((n % 10) < 0 ? -(n % 10) : (n % 10)) + '0';
 		n /= 10;
 		--len;
 	}
-	ar[len] = ABS(n % 10) + '0';
+	ar[len] = ((n % 10) < 0 ? -(n % 10) : (n % 10)) + '0';
 	return (ar);
-	
+
 }

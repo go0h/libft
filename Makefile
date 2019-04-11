@@ -67,7 +67,9 @@ OBJ = ft_memset.o\
 	ft_putchar_fd.o\
 	ft_putstr_fd.o\
 	ft_putendl_fd.o\
-	ft_putnbr_fd.o
+	ft_putnbr_fd.o\
+	ft_lstnew.o\
+	ft_lstdelone.o
 
 SOURCES =  ft_memset.c\
 	ft_bzero.c\
@@ -120,7 +122,9 @@ SOURCES =  ft_memset.c\
 	ft_putchar_fd.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c\
+	ft_lstnew.c\
+	ft_lstdelone.c
 
 all: bin $(NAME)
 

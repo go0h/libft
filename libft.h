@@ -130,7 +130,7 @@ void    		ft_putnbr_fd(int n, int fd);
 
 t_list			*ft_lstnew(void const *content, size_t content_size);
 
-t_list			*ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
+void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 

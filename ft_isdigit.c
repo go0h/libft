@@ -6,16 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:48:24 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/04 20:47:10 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:41:31 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int			ft_isdigit(int c)
 {
-	unsigned char c_ch;
-
-	c_ch = (unsigned char)c;
-	if (c_ch > 47 && c_ch < 58)
+	if (c > 47 && c < 58)
 		return (1);
 	else
 		return (0);

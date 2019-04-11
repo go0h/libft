@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 19:43:20 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 19:44:52 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 20:26:41 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	s_ch = (unsigned char*)s;
 	c_ch = (unsigned char)c;
-	if (s_ch == NULL)
-		return (NULL);
 	i = 0;
 	while (i < n)
 	{

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 19:33:27 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 19:33:53 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 20:30:15 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strrchr(const char *s, int c)
 	c_ch = (unsigned char)c;
 	s_ch = (unsigned char*)s;
 	i = 0;
-	if (s == NULL)
-		return (NULL);
 	while (s_ch[i] != '\0')
 		++i;
 	while (i >= 0)

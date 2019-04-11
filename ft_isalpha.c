@@ -6,16 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:47:35 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 20:14:04 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:40:09 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int			ft_isalpha(int c)
 {
-	unsigned char c_ch;
-
-	c_ch = (unsigned char)c;
-	if ((c_ch > 64 && c_ch < 91) || (c_ch > 96 && c_ch < 123))
+	if ((c > 64 && c < 91) || (c > 96 && c < 123))
 		return (1);
 	else
 		return (0);

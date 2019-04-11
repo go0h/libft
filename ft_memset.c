@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:04:33 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 19:38:34 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 20:18:54 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	unsigned char	ch;
 	unsigned char	*str;
 
-	if (s == NULL)
-		return (NULL);
 	i = 0;
 	ch = (unsigned char)c;
 	str = (unsigned char*)s;

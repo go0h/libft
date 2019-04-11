@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/04/11 18:31:40 by astripeb         ###   ########.fr        #
+#    Updated: 2019/04/11 20:13:06 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,18 +134,19 @@ SOURCES =  ft_memset.c\
 	ft_lstiter.c\
 	ft_lstmap.c
 
-all: bin $(NAME)
+all: $(NAME)
 
 bin:
-	@ $(CC) $(CFLAGS) -c $(SOURCES)
+	@$(CC) $(CFLAGS) -c $(SOURCES)
 
-$(NAME): bin
-	@ ar rc $(NAME) $(OBJ)
+$(NAME):
+	@$(CC) $(CFLAGS) -c $(SOURCES)
+	@ar rc $(NAME) $(OBJ)
 
 clean:
-	@ rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean:
-	@ rm -f $(OBJ) $(NAME)
+	@rm -f $(OBJ) $(NAME)
 
 re: fclean all

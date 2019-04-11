@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:42:46 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 16:43:25 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:36:00 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strtrim(char const *s)
 		trim = ft_strnew(1);
 	else
 	{
-		trim = ft_strnew(j - i + 2);
+		trim = ft_strnew(j - i);
 		if (trim == NULL)
 			return (NULL);
 		trim = ft_strncpy(trim, &s[i], j - i);

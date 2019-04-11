@@ -6,16 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:50:30 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 19:23:31 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:43:30 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_toupper(int c)
 {
-	unsigned char c_ch;
-
-	c_ch = (unsigned char)c;
-	if (c_ch > 96 && c_ch < 123)
-		return (c_ch -= 32);
-	return (c_ch);
+	if (c > 96 && c < 123)
+		return (c -= 32);
+	return (c);
 }

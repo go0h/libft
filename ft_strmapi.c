@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:49:59 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 16:50:24 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:34:03 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s == NULL)
 		return (NULL);
 	len = ft_strlen(s);
-	str = ft_strnew(len + 1);
+	str = ft_strnew(len);
 	if (str == NULL)
 		return (NULL);
 	i = 0;

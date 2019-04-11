@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:16:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 20:17:11 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:44:51 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 int		ft_isascii(int c)
 {
-	unsigned char c_ch;
-
-	c_ch = (unsigned char)c;
-	if (c_ch < 128)
-	{
+	if (c < 128 && c >= 0)
 		return (1);
-	}
 	else
-	{
 		return (0);
-	}
 }

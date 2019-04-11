@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 21:37:58 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 21:49:47 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:33:37 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	if (s == NULL)
 		return (NULL);
 	len = ft_strlen(s);
-	str = ft_strnew(len + 1);
+	str = ft_strnew(len);
 	if (str == NULL)
 		return (NULL);
 	i = 0;
@@ -30,5 +30,6 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		str[i] = f(s[i]);
 		++i;
 	}
+	str[i] = '\0';
 	return (str);
 }

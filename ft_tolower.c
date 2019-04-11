@@ -6,16 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:51:15 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 19:23:39 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:43:49 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_tolower(int c)
 {
-	unsigned char c_ch;
-
-	c_ch = (unsigned char)c;
-	if (c_ch > 64 && c_ch < 91)
-		return (c_ch += 32);
-	return (c_ch);
+	if (c > 64 && c < 91)
+		return (c += 32);
+	return (c);
 }

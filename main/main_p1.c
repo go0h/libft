@@ -6,12 +6,12 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 10:24:25 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 16:49:02 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:15:22 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "my_header.h"
-
+#include <ctype.h>
 int			main(void)
 {
 	int n;
@@ -191,10 +191,8 @@ int			main(void)
 	const char strlcat3[] = "Privet,";
 	const char strlcat4[] = " kak ";
 	const char strlcat5[] = "dela?";
-	printf("standard: 1 = %d, 2 = %d, 3 = %d: %s\n", strlcat(strlcat1, strlcat3, l),\
-			strlcat(strlcat1, strlcat4, l), strlcat(strlcat1, strlcat5, l), strlcat1);
-	printf("testing:  1 = %zu, 2 = %zu, 3 = %zu: %s\n", ft_strlcat(strlcat2, strlcat3, l),\
-			ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);
+	printf("standard: 1 = %lu, 2 = %lu, 3 = %lu: %s\n", strlcat(strlcat1, strlcat3, l), strlcat(strlcat1, strlcat4, l), strlcat(strlcat1, strlcat5, l), strlcat1);
+	printf("testing:  1 = %lu, 2 = %lu, 3 = %lu: %s\n", ft_strlcat(strlcat2, strlcat3, l), ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);
 
 
 	//STRCHR
@@ -245,6 +243,11 @@ int			main(void)
 	char strnstr5[] = "456";
 	strnstr3 = ft_strnstr(strnstr4, strnstr5, k);
 	printf("testing:  %s\t%s\n", strnstr4, strnstr3);
+	printf("%s == %s\n", strnstr("", "privet", 10), ft_strnstr("", "privet", 10));
+	printf("%s == %s\n", strnstr("privet", "", 10), ft_strnstr("privet", "", 10));
+	printf("%s == %s\n", strnstr("privet", "privet", 0), ft_strnstr("privet", "privet", 0));
+	printf("%s == %s\n", strnstr("", "privet", 0), ft_strnstr("", "privet", 0));
+	printf("%s == %s\n", strnstr("privet", "", 0), ft_strnstr("privet", "", 0));
 
 	//STRCMP
 	printf("\n19_STRCMP\n");

@@ -6,16 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:49:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 16:39:33 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/11 21:41:46 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int			ft_isprint(int c)
 {
-	unsigned char c_ch;
-
-	c_ch = (unsigned char)c;
-	if (c_ch > 31 && c_ch < 127)
+	if (c > 31 && c < 127)
 		return (1);
 	else
 		return (0);

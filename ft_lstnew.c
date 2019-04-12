@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:01:17 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 17:12:22 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/12 18:13:07 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *newl;
 
-	if ((newl = (t_list*)malloc(sizeof(t_list))) == NULL)
+	newl = (t_list*)ft_memalloc(sizeof(t_list));
+	if (newl == NULL)
 		return (NULL);
 	if (content != NULL)
 	{
-		newl->content = (void*)content;
+		newl->content = (void*)ft_memalloc(content_size);
+		ft_memcpy(newl->content, content, content_size);
 		newl->content_size = content_size;
 	}
 	else

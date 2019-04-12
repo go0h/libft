@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:42:46 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 21:36:00 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/12 18:26:17 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ char	*ft_strtrim(char const *s)
 	char	*trim;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		++i;
-	j = ft_strlen(s);
-	if (j != 0)
+	if ((j = ft_strlen(s)) != 0)
 		j -= 1;
 	while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
 		--j;

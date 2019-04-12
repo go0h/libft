@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:37:28 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 16:39:20 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/12 18:23:57 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static size_t	ft_count_words(char const *s, char c)
 	i = 0;
 	flag = 1;
 	count = 0;
+	if (!s)
+		return (count);
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && flag == 0)
@@ -67,7 +69,7 @@ char			**ft_strsplit(char const *s, char c)
 	char	**arr;
 
 	words = ft_count_words(s, c);
-	if ((arr = (char**)malloc(sizeof(char*) * (words + 1))) == NULL)
+	if (!s || (arr = (char**)malloc(sizeof(char*) * (words + 1))) == NULL)
 		return (NULL);
 	i = 0;
 	while (words--)

@@ -46,8 +46,12 @@ int			main(void)
 	printf("\n52_LSTNEW\n");
 	char *s1 = ft_strdup("Privet, kak dela?");
 	len = ft_strlen(s1);
-	t_list *list = ft_lstnew((void*)s1, len);
+	t_list *list = ft_lstnew(s1, len);
 	t_list *list1 = ft_lstnew(NULL, len);
+	printf("SIZEOF T_LIST = %zu\n", sizeof(t_list));
+	printf("SIZEOF VOID* = %zu\n", sizeof(void*));
+	printf("SIZEOF SIZE_T = %zu\n", sizeof(size_t));
+	printf("SIZEOF T_LIST* = %zu\n", sizeof(t_list*));
 	printf("%s\nlen = %zu\n", (char*)list->content, list->content_size);
 	printf("%s\nlen = %zu\n", (char*)list1->content, list1->content_size);
 
@@ -75,12 +79,12 @@ int			main(void)
 	s1 = ft_strdup("Privet, kak dela?");
 	i = 0;
 	len = 5;
-	t_list *begin = ft_lstnew((void*)ft_strdup("Privet, kak dela?"), ft_strlen(s1));
-	t_list *end = ft_lstnew((void*)ft_strdup("Privet, kak dela?"), ft_strlen(s1));
+	t_list *begin = ft_lstnew(s1, ft_strlen(s1));
+	t_list *end = ft_lstnew(s1, ft_strlen(s1));
 	begin->next = end;
 	while (i < len)
 	{		
-		end->next = ft_lstnew((void*)ft_strdup("Privet, kak dela?"), ft_strlen(s1));
+		end->next = ft_lstnew(s1, ft_strlen(s1));
 		end = end->next;
 		i++;
 	}
@@ -104,12 +108,12 @@ int			main(void)
 	printf("\n55_LSTADD\n");
 	i = 0;
 	len = 5;
-	begin = ft_lstnew((void*)ft_strdup("Privet, kak dela?"), ft_strlen(s1));
-	end = ft_lstnew((void*)ft_strdup("Privet, kak dela?"), ft_strlen(s1));
+	begin = ft_lstnew(s1, ft_strlen(s1));
+	end = ft_lstnew(s1, ft_strlen(s1));
 	begin->next = end;
 	while (i < len)
 	{		
-		end->next = ft_lstnew((void*)ft_strdup("Privet, kak dela?"), ft_strlen(s1));
+		end->next = ft_lstnew(s1, ft_strlen(s1));
 		end = end->next;
 		i++;
 	}
@@ -119,7 +123,7 @@ int			main(void)
 		printf("%s\n", (char*)end->content);
 		end = end->next;
 	}
-	t_list *added = ft_lstnew((void*)ft_strdup("ADDED LIST!"), ft_strlen(s1));
+	t_list *added = ft_lstnew("ADDED LIST!", ft_strlen(s1));
 	ft_lstadd(&begin, added);
 	end = begin;
 	while (end != NULL)

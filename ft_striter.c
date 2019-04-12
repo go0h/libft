@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 20:29:15 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/09 20:53:02 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/12 18:14:04 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striter(char *s, void (*f)(char*))
 {
-	if (s != NULL)
+	if (s != NULL && f != NULL)
 	{
 		while (*s)
 		{

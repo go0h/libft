@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 10:24:25 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 21:15:22 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/12 17:05:49 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,6 +282,10 @@ int			main(void)
 	printf("%d = %d\n", atoi("2147483647"), ft_atoi("2147483647"));
 	printf("%d = %d\n", atoi("-2147483648"), ft_atoi("-2147483648"));
 	printf("%d = %d\n", atoi("-21474836489"), ft_atoi("-21474836489"));
+	char at[40] = "99999999999999999999999999";
+	printf("%d = %d\n", atoi(at), ft_atoi(at));
+	char att[40] = "-99999999999999999999999999";
+	printf("%d = %d\n", atoi(att), ft_atoi(att));
 
 
 	//ISALPHA

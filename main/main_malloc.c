@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   main_malloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:42:56 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/12 18:13:26 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/12 17:50:21 by astripeb          #+#    #+#             */
+/*   Updated: 2019/04/12 18:26:04 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strnew(size_t size)
+int		main(int argc, char **argv)
 {
-	char *str;
-
-	str = ft_memalloc(size + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_bzero((void*)str, size);
-	return (str);
+	if (argc != 2)
+		return (0);
+	int n = atoi(argv[1]);
+	
+	char *arr;
+	printf("n = %d\n", n);
+	printf("%d = %p\n", n, (void*)arr);
+	arr = (char*)malloc(n);
+	printf("%d = %p\n", n, (void*)arr);
+	return (0);
 }

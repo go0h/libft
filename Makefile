@@ -73,7 +73,8 @@ OBJ = ft_memset.o\
 	ft_lstdel.o\
 	ft_lstadd.o\
 	ft_lstiter.o\
-	ft_lstmap.o
+	ft_lstmap.o\
+	ft_atol.o
 
 SOURCES =  ft_memset.c\
 	ft_bzero.c\
@@ -132,7 +133,8 @@ SOURCES =  ft_memset.c\
 	ft_lstdel.c\
 	ft_lstadd.c\
 	ft_lstiter.c\
-	ft_lstmap.c
+	ft_lstmap.c\
+	ft_atol.c
 
 all: $(NAME)
 

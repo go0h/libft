@@ -10,29 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int					ft_atoi(const char *str)
 {
-	int			nb;
+	long int		nb;
 	int			flag;
-	long long	lnbr;
 
-	lnbr = 0;
 	nb = 0;
-	flag = 1;
 	while ((*str > 8 && *str < 14) || *str == 32)
 		++str;
-	if (*str == '-' || *str == '+')
-		flag = 44 - *str++;
+	flag = (*str == '+' || *str == '-') ? (44 - *str++) : 1;
 	while (*str > 47 && *str < 58)
 	{
-		lnbr = lnbr * 10 + (*str - 48);
-		nb = nb * 10 + (*str++ - 48);
+		nb = nb * 10 + (*str++ - '0');
+		if (flag == 1 && nb < 0)
+			return (-1);
+		else if (flag == -1 && nb < 0)
+			return (0);
 	}
-	if (lnbr < 0 && flag == -1)
-		return (0);
-	else if (lnbr < 0 && flag == 1)
-		return (-1);
 	return (nb * flag);
 }

@@ -58,7 +58,12 @@ int			main(void)
 	m12 = (char*)ft_memcpy((void*)m11, (void*)m9, l);
 	m12[l] = '\0';
 	printf("testing:  %s\t%s = %s\n", m9, m11, m12);
-
+	m12 = NULL;
+	printf("std: %s\t test:%s\n", (char*)memcpy(m12, m12, 10), (char*)ft_memcpy(m12, m12, 10));
+	printf("std: %s\t test: %s\n", (char*)memcpy(m9, m9, 0), (char*)ft_memcpy(m9, m9, 0));
+	printf("std: %s\t", (char*)memcpy(m12, m12, 10));
+	printf("test: %s\n", (char*)ft_memcpy(m12, m12, 10));
+	
 	//MEMCCPY
 	l = 16;
 	printf("\n4_MEMCCPY\n");
@@ -74,6 +79,8 @@ int			main(void)
 	m17 = (char*)ft_memccpy((void*)m15, (void*)m13, m, l);
 	m17[l] = '\0';
 	printf("testing:  %s\t%s = %s\n", m13, m15, m17);
+	m16 = NULL;
+	printf("std: %s\t test:%s\n", (char*)memccpy(m16, m16, m, 10), (char*)ft_memccpy(m16, m16, m, 10));
 
 	//MEMMOVE
 	l = 10;
@@ -183,7 +190,7 @@ int			main(void)
 	free(strncat1);
 	free(strncat2);
 
-	//STRLCAT
+	/*/STRLCAT
 	printf("\n14_STRLCAT\n");
 	l = 100;
 	char *strlcat1 = (char*)malloc(l);
@@ -192,7 +199,7 @@ int			main(void)
 	const char strlcat4[] = " kak ";
 	const char strlcat5[] = "dela?";
 	printf("standard: 1 = %lu, 2 = %lu, 3 = %lu: %s\n", strlcat(strlcat1, strlcat3, l), strlcat(strlcat1, strlcat4, l), strlcat(strlcat1, strlcat5, l), strlcat1);
-	printf("testing:  1 = %lu, 2 = %lu, 3 = %lu: %s\n", ft_strlcat(strlcat2, strlcat3, l), ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);
+	printf("testing:  1 = %lu, 2 = %lu, 3 = %lu: %s\n", ft_strlcat(strlcat2, strlcat3, l), ft_strlcat(strlcat2, strlcat4, l), ft_strlcat(strlcat2, strlcat5, l), strlcat2);*/
 
 
 	//STRCHR
@@ -231,7 +238,7 @@ int			main(void)
 	printf("testing:  %s\t%s\n", ex05_4, ex05_3);
 
 
-	//STRNSTR
+	/*/STRNSTR
 	printf("\n18_STRNSTR\n");
 	size_t k = 100;
 	char strnstr1[] = "12345123456";
@@ -247,7 +254,7 @@ int			main(void)
 	printf("%s == %s\n", strnstr("privet", "", 10), ft_strnstr("privet", "", 10));
 	printf("%s == %s\n", strnstr("privet", "privet", 0), ft_strnstr("privet", "privet", 0));
 	printf("%s == %s\n", strnstr("", "privet", 0), ft_strnstr("", "privet", 0));
-	printf("%s == %s\n", strnstr("privet", "", 0), ft_strnstr("privet", "", 0));
+	printf("%s == %s\n", strnstr("privet", "", 0), ft_strnstr("privet", "", 0));*/
 
 	//STRCMP
 	printf("\n19_STRCMP\n");
@@ -286,7 +293,11 @@ int			main(void)
 	printf("%d = %d\n", atoi(at), ft_atoi(at));
 	char att[40] = "-99999999999999999999999999";
 	printf("%d = %d\n", atoi(att), ft_atoi(att));
-
+	printf("%d = %d\n", atoi("−9223372036854775808"), ft_atoi("−9223372036854775808"));
+   printf("%d = %d\n", atoi("9223372036854775807"), ft_atoi("9223372036854775807"));
+   printf("%d = %d\n", atoi("−9223372036854775809"), ft_atoi("−9223372036854775809"));
+   printf("%d = %d\n", atoi("9223372036854775808"), ft_atoi("9223372036854775808"));
+	
 
 	//ISALPHA
 	printf("\n22_ISALPHA\n");
@@ -385,6 +396,29 @@ int			main(void)
 		++i;
 	}
 	printf("%s\n", to_up1);
+
+	//ATOL
+	printf("\nEXTRA_ATOL\n");
+	printf("%ld = %ld\n", atol("dwf24ss"), ft_atol("dwf24ss"));
+	printf("%ld = %ld\n", atol("--324ss"), ft_atol("--324ss"));
+	printf("%ld = %ld\n", atol("-324ss"), ft_atol("-324ss"));
+	printf("%ld = %ld\n", atol("00024"), ft_atol("00024"));
+	printf("%ld = %ld\n", atol("\t\n+213s5"), ft_atol("\t\n+213s5"));
+	printf("%ld = %ld\n", atol("\b\t\n-213s5"), ft_atol("\b\t\n-213s5"));
+	printf("%ld = %ld\n", atol("    99999"), ft_atol("    99999"));
+	printf("%ld = %ld\n", atol("999999999999"), ft_atol("999999999999"));
+	printf("%ld = %ld\n", atol("2147483647"), ft_atol("2147483647"));
+	printf("%ld = %ld\n", atol("-2147483648"), ft_atol("-2147483648"));
+	printf("%ld = %ld\n", atol("-21474836489"), ft_atol("-21474836489"));
+	printf("%ld = %ld\n", atol("−9223372036854775808"), ft_atol("−9223372036854775808"));
+   printf("%ld = %ld\n", atol(" 9223372036854775807"), ft_atol(" 9223372036854775807"));
+   printf("%ld = %ld\n", atol("−9223372036854775809"), ft_atol("−9223372036854775809"));
+   printf("%ld = %ld\n", atol(" 9223372036854775808"), ft_atol(" 9223372036854775808"));
+   printf("%ld = %ld\n", atol(" 92233720368547758081"), ft_atol(" 92233720368547758081"));
+   printf("%ld = %ld\n", atol("-92233720368547758081"), ft_atol(" -92233720368547758081"));
+	printf("%ld = %ld\n", atol(at), ft_atol(at));
+	printf("%ld = %ld\n", atol(att), ft_atol(att));
+
 
 	return (0);
 }

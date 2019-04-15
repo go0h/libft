@@ -18,11 +18,11 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	size_t	len;
 	size_t	i;
 
-	if (s == NULL)
+	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
 	str = ft_strnew(len);
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (i < len)

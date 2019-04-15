@@ -29,11 +29,11 @@ char	*ft_strtrim(char const *s)
 		--j;
 	++j;
 	if (i > j)
-		trim = ft_strnew(1);
+		trim = ft_strnew(0);
 	else
 	{
 		trim = ft_strnew(j - i);
-		if (trim == NULL)
+		if (!trim)
 			return (NULL);
 		trim = ft_strncpy(trim, &s[i], j - i);
 	}

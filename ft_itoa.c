@@ -35,7 +35,7 @@ char			*ft_itoa(int n)
 		len += 1;
 	ar = ft_strnew(len);
 	--len;
-	if (ar == NULL)
+	if (!ar)
 		return (NULL);
 	if (n < 0)
 		ar[0] = '-';
@@ -45,6 +45,6 @@ char			*ft_itoa(int n)
 		n /= 10;
 		--len;
 	}
-	ar[len] = ((n % 10) < 0 ? -(n % 10) : (n % 10)) + '0';
+	ar[len] = (n < 0 ? -(n) : n) + '0';
 	return (ar);
 }

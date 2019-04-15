@@ -19,6 +19,6 @@ char	*ft_strnew(size_t size)
 	str = ft_memalloc(size + 1);
 	if (str == NULL)
 		return (NULL);
-	ft_bzero((void*)str, size);
+	ft_bzero((void*)str, size + 1);
 	return (str);
 }

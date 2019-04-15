@@ -78,6 +78,8 @@ int				ft_isalnum(int c);
 
 int				ft_isascii(int c);
 
+int				ft_isspace(int c);
+
 int				ft_toupper(int c);
 
 int				ft_tolower(int c);
@@ -141,5 +143,11 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+void			ft_del_mem(void *data, size_t size);
+
+void			ft_free_arr(char **data);
+
+char			**ft_strsplit_sp(char const *s);
 
 #endif

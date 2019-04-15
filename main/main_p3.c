@@ -1,12 +1,5 @@
 #include "my_header.h"
 
-void    ft_del_mem(void *data, size_t size)
-{
-    size *= 0;
-    free(data);
-    data = NULL;
-}
-
 void	ft_iter_list(t_list *elem)
 {
 	char *s;

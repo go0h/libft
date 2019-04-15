@@ -316,5 +316,18 @@ int			main(void)
 	ft_putstr_fd("-2147483648 = ", 1);
 	ft_putnbr_fd(-2147483648, 1);
 	ft_putchar_fd('\n', 1);
+	
+	//STRSPLIT_SPACE
+	printf("\nEXTRA_STRSPLIT_SPACE\n");
+	char **split4 = ft_strsplit_sp("\n\tPrivet,        \n\v   kak dela? ");
+	ft_printarr(split4);
+	printf("\n");
+	char **split5 = ft_strsplit_sp("    \fPrivet,\t\t\fkak\n\\\ndela?\r\r\r??\n");
+	ft_printarr(split5);
+	printf("\n");
+	char **split6 = ft_strsplit_sp("\t\n\va\f\raaaaaaa");
+	printf("0 = ");
+	ft_printarr(split6);
+	printf("\n");
 	return (0);
 }

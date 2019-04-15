@@ -47,20 +47,6 @@ static size_t	ft_strlenc(char const *s, char c)
 	return (i);
 }
 
-static void		ft_freearr(char **s)
-{
-	size_t i;
-
-	i = 0;
-	while (s[i])
-	{
-		free(s[i]);
-		i++;
-	}
-	free(s);
-	s = NULL;
-}
-
 char			**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
@@ -79,7 +65,7 @@ char			**ft_strsplit(char const *s, char c)
 		len = ft_strlenc(s, c);
 		if ((arr[i] = ft_strsub(s, 0, len)) == NULL)
 		{
-			ft_freearr(arr);
+			ft_free_arr(arr);
 			return (NULL);
 		}
 		s += len;

@@ -17,14 +17,20 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list *begin;
 	t_list *temp;
 
-	if (lst != NULL)
+	if (lst && f)
 	{
-		begin = f(lst);
+		if (!(begin = f(lst)))
+			return (NULL);
 		temp = begin;
 		lst = lst->next;
 		while (lst != NULL)
 		{
 			temp->next = f(lst);
+			if (!temp->next)
+			{
+				ft_lstdel(&begin, &ft_del_mem);
+				return (NULL);
+			}
 			temp = temp->next;
 			lst = lst->next;
 		}

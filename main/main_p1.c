@@ -79,8 +79,6 @@ int			main(void)
 	m17 = (char*)ft_memccpy((void*)m15, (void*)m13, m, l);
 	m17[l] = '\0';
 	printf("testing:  %s\t%s = %s\n", m13, m15, m17);
-	m16 = NULL;
-	printf("std: %s\t test:%s\n", (char*)memccpy(m16, m16, m, 10), (char*)ft_memccpy(m16, m16, m, 10));
 
 	//MEMMOVE
 	l = 10;

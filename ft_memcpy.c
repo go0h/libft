@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 19:36:05 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 20:19:26 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:43:25 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t				i;
 	unsigned char		*dest_ch;
 	unsigned const char	*src_ch;
-	
+
 	if (dest == NULL && src == NULL)
 		return (NULL);
 	dest_ch = (unsigned char*)dest;

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:45:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 16:48:45 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/23 22:43:19 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putstr_fd(char const *str, int fd)
 {
-	while (str && *str)
-	{
-		ft_putchar_fd(*str, fd);
-		++str;
-	}
+	if (str && *str)
+		write(fd, str, ft_strlen(str));
 }

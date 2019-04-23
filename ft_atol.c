@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 16:42:02 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/16 16:42:17 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/04/23 23:35:01 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long int		ft_atol(const char *str)
 {
-	long long int	nb;
+	long int		nb;
 	int				flag;
 
 	nb = 0;
@@ -24,9 +24,9 @@ long int		ft_atol(const char *str)
 	while (*str > 47 && *str < 58)
 	{
 		nb = nb * 10 + (*str++ - '0');
-		if (flag == -1 && nb < 0)
+		if (flag == -1 && nb != nb * 10 / 10)
 			return (LONG_MIN);
-		else if (flag == 1 && nb < 0)
+		else if (flag == 1 && nb != nb * 10 / 10)
 			return (LONG_MAX);
 	}
 	return (nb * flag);

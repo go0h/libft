@@ -6,31 +6,18 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:51:03 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/11 21:34:41 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/05/02 10:43:07 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static size_t	ft_decn(int n)
-{
-	size_t i;
-
-	i = 1;
-	while (n / 10 != 0)
-	{
-		i++;
-		n /= 10;
-	}
-	return (i);
-}
 
 char			*ft_itoa(int n)
 {
 	char	*ar;
 	size_t	len;
 
-	len = ft_decn(n);
+	len = ft_int_len(n);
 	if (n < 0)
 		len += 1;
 	ar = ft_strnew(len);

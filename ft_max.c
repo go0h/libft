@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_malloc.c                                      :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 17:50:21 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/12 18:26:04 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/18 13:27:45 by astripeb          #+#    #+#             */
+/*   Updated: 2019/05/18 13:29:58 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+int		ft_max(int a, int b)
 {
-	if (argc != 2)
-		return (0);
-	int n = atoi(argv[1]);
-	
-	char *arr;
-	printf("n = %d\n", n);
-	printf("%d = %p\n", n, (void*)arr);
-	arr = (char*)malloc(n);
-	printf("%d = %p\n", n, (void*)arr);
-	return (0);
+	return (a > b ? a : b);
 }

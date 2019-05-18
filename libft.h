@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:10:53 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/12 17:06:31 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/05/18 13:46:57 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 4096
 
 typedef struct	s_list
 {
@@ -66,8 +71,6 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int				ft_atoi(const char *str);
 
-long int				ft_atol(const char *str);
-
 int				ft_isalpha(int c);
 
 int				ft_isdigit(int c);
@@ -116,7 +119,9 @@ char			**ft_strsplit(char const *s, char c);
 
 char			*ft_itoa(int n);
 
-void			ft_putchar(char c);
+void			ft_putchar(int c);
+
+void			ft_putchar_utf8(int c);
 
 void			ft_putstr(char const *s);
 
@@ -124,7 +129,9 @@ void			ft_putendl(char const *s);
 
 void			ft_putnbr(int n);
 
-void			ft_putchar_fd(char c, int fd);
+void			ft_putchar_fd(int c, int fd);
+
+void			ft_putchar_utf8_fd(int c, int fd);
 
 void			ft_putstr_fd(char const *s, int fd);
 
@@ -150,4 +157,13 @@ void			ft_free_arr(char **data);
 
 char			**ft_strsplit_sp(char const *s);
 
+size_t			ft_int_len(int nbr);
+
+int				ft_max(int a, int b);
+
+int				ft_min(int a, int b);
+
+int				ft_abs(int a);
+
+int				get_next_line(const int fd, char **line);
 #endif

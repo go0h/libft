@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_int_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 16:45:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/05/05 16:40:36 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/02 10:42:25 by astripeb          #+#    #+#             */
+/*   Updated: 2019/05/02 10:42:39 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *str, int fd)
+size_t	ft_int_len(int n)
 {
-	if (str && *str)
-		write(fd, str, ft_strlen(str));
+	size_t i;
+
+	i = 1;
+	while (n / 10 != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }

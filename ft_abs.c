@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 16:45:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/05/05 16:40:36 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/18 13:32:28 by astripeb          #+#    #+#             */
+/*   Updated: 2019/05/18 13:33:02 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *str, int fd)
+int		ft_abs(int a)
 {
-	if (str && *str)
-		write(fd, str, ft_strlen(str));
+	return (a < 0 ? -(a) : a);
 }

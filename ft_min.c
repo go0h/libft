@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 16:45:38 by astripeb          #+#    #+#             */
-/*   Updated: 2019/05/05 16:40:36 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/18 13:32:02 by astripeb          #+#    #+#             */
+/*   Updated: 2019/05/18 13:49:17 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *str, int fd)
+int		ft_min(int a, int b)
 {
-	if (str && *str)
-		write(fd, str, ft_strlen(str));
+	return (a > b ? b : a);
 }

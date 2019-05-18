@@ -6,11 +6,12 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 19:36:05 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/16 16:43:25 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/05/18 13:25:55 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -18,8 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char		*dest_ch;
 	unsigned const char	*src_ch;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
+	if (dest == src || n == 0)
+		return (dest);
 	dest_ch = (unsigned char*)dest;
 	src_ch = (unsigned const char*)src;
 	i = 0;

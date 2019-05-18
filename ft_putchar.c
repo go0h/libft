@@ -6,13 +6,16 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:42:19 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/12 21:41:38 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/05/18 13:50:54 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(int c)
 {
-	write(1, &c, 1);
+	if (c <= 128)
+		write(1, &c, 1);
+	else
+		ft_putchar_utf8(c);
 }

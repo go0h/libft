@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_utf8.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/06/07 20:12:02 by astripeb          #+#    #+#             */
+/*   Updated: 2019/06/12 12:23:36 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+int	ft_putstr_utf8(int const *str)
 {
-	if (as && *as)
+	int i;
+
+	i = 0;
+	while (*str)
 	{
-		free(*as);
-		*as = NULL;
+		i += ft_putchar_utf8(*str);
+		++str;
 	}
-	as = NULL;
+	return (i);
 }

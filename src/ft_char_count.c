@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_char_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/09/06 16:45:23 by astripeb          #+#    #+#             */
+/*   Updated: 2019/09/06 16:45:45 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+int		ft_char_count(char *str, char c)
 {
-	if (as && *as)
+	int i;
+
+	i = 0;
+	if (!str)
+		return (i);
+	while (*str++)
 	{
-		free(*as);
-		*as = NULL;
+		if (*str == c)
+			++i;
 	}
-	as = NULL;
+	return (i);
 }

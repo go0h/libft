@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_to_uppercase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/06/12 10:21:15 by astripeb          #+#    #+#             */
+/*   Updated: 2019/06/12 10:22:44 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void		ft_to_uppercase(char *str)
 {
-	if (as && *as)
+	if (str)
 	{
-		free(*as);
-		*as = NULL;
+		while (*str)
+		{
+			*str = ft_toupper(*str);
+			++str;
+		}
 	}
-	as = NULL;
 }

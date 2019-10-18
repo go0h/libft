@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_llitoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 21:11:36 by astripeb          #+#    #+#             */
-/*   Updated: 2019/06/12 13:27:25 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/25 11:47:16 by astripeb          #+#    #+#             */
+/*   Updated: 2019/05/25 11:47:48 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char			*ft_llitoa(long long int n)
 {
-	size_t i;
+	char	*ar;
+	size_t	len;
 
-	i = 0;
-	while (s[i])
-		++i;
-	return (i);
+	len = ft_int_len(n);
+	if (n < 0)
+		len += 1;
+	ar = ft_strnew(len);
+	--len;
+	if (!ar)
+		return (NULL);
+	if (n < 0)
+		ar[0] = '-';
+	while (n / 10 != 0)
+	{
+		ar[len] = ((n % 10) < 0 ? -(n % 10) : (n % 10)) + '0';
+		n /= 10;
+		--len;
+	}
+	ar[len] = (n < 0 ? -(n) : n) + '0';
+	return (ar);
 }

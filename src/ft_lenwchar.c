@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lenwchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/06/12 15:58:41 by astripeb          #+#    #+#             */
+/*   Updated: 2019/06/12 16:00:43 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+char	ft_lenwchar(int c)
 {
-	if (as && *as)
-	{
-		free(*as);
-		*as = NULL;
-	}
-	as = NULL;
+	if (c < 128)
+		return (1);
+	else if (c < 2048)
+		return (2);
+	else if (c < 65536)
+		return (3);
+	else if (c < 1114112)
+		return (4);
+	return (0);
 }

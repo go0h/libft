@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 19:36:05 by astripeb          #+#    #+#             */
+/*   Created: 2019/06/12 13:20:36 by astripeb          #+#    #+#             */
 /*   Updated: 2019/08/28 12:30:05 by pcredibl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t		ft_lstrlen(const int *s)
 {
-	size_t				i;
-	unsigned char		*dest_ch;
-	unsigned const char	*src_ch;
+	size_t i;
 
-	if (dest == src || n == 0)
-		return (dest);
-	dest_ch = (unsigned char*)dest;
-	src_ch = (unsigned const char*)src;
 	i = 0;
-	while (i < n)
+	while (*s)
 	{
-		dest_ch[i] = src_ch[i];
-		++i;
+		if (*s < 128)
+			++i;
+		else if (*s < 2048)
+			i += 2;
+		else if (*s < 65536)
+			i += 3;
+		else if (*s < 1114112)
+			i += 4;
+		++s;
 	}
-	return (dest);
+	return (i);
 }

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   page_del.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcredibl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/04/22 22:06:40 by pcredibl          #+#    #+#             */
+/*   Updated: 2019/04/22 22:14:32 by pcredibl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void	page_del(t_list **lst)
 {
-	if (as && *as)
+	t_list	*temp;
+
+	if (*lst != NULL)
 	{
-		free(*as);
-		*as = NULL;
+		temp = *lst;
+		while (temp != NULL)
+		{
+			temp = *lst;
+			free(*lst);
+			(*lst)->next = NULL;
+			*lst = temp->next;
+		}
 	}
-	as = NULL;
 }

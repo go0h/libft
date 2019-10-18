@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isdigitstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 19:36:05 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 12:30:05 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/08/25 10:30:18 by astripeb          #+#    #+#             */
+/*   Updated: 2019/08/28 12:29:30 by pcredibl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int		ft_isdigitstr(char *str)
 {
-	size_t				i;
-	unsigned char		*dest_ch;
-	unsigned const char	*src_ch;
+	int i;
 
-	if (dest == src || n == 0)
-		return (dest);
-	dest_ch = (unsigned char*)dest;
-	src_ch = (unsigned const char*)src;
+	if (!str)
+		return (-1);
 	i = 0;
-	while (i < n)
+	while (str[i] != '\0')
 	{
-		dest_ch[i] = src_ch[i];
+		if (!ft_isdigit(str[i]))
+			return (0);
 		++i;
 	}
-	return (dest);
+	return (1);
 }

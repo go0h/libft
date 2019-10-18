@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   word_count.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcredibl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/04/19 11:22:50 by pcredibl          #+#    #+#             */
+/*   Updated: 2019/04/24 12:41:16 by pcredibl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+size_t	word_count(char const *str, char c)
 {
-	if (as && *as)
+	size_t	wc;
+	size_t	i;
+
+	if (str == NULL)
+		return (0);
+	i = 0;
+	wc = 0;
+	while (str[i])
 	{
-		free(*as);
-		*as = NULL;
+		if ((str[i] != c && str[i] != '\0' && str[i - 1] == c)
+				|| (str[i] != c && i == 0))
+			wc++;
+		i++;
 	}
-	as = NULL;
+	return (wc);
 }

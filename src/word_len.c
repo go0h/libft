@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   word_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcredibl <pcredibl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pcredibl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 18:48:40 by astripeb          #+#    #+#             */
-/*   Updated: 2019/08/28 13:27:57 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/04/19 11:20:06 by pcredibl          #+#    #+#             */
+/*   Updated: 2019/04/24 12:45:17 by pcredibl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+size_t	word_len(char const *s, char c)
 {
-	if (as && *as)
-	{
-		free(*as);
-		*as = NULL;
-	}
-	as = NULL;
+	size_t	i;
+
+	i = 0;
+	if (s != NULL)
+		while (s[i] != c && s[i] != '\0')
+			i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 16:41:37 by astripeb          #+#    #+#             */
-/*   Updated: 2019/04/16 16:41:40 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/08/28 21:48:40 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void		ft_free_arr(char **s)
 	size_t i;
 
 	i = 0;
-	while (s[i])
+	if (s)
 	{
-		free(s[i]);
-		i++;
+		while (s[i])
+		{
+			free(s[i]);
+			i++;
+		}
+		free(s);
 	}
-	free(s);
 	s = NULL;
 }

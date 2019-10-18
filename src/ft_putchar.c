@@ -5,17 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 16:42:19 by astripeb          #+#    #+#             */
-/*   Updated: 2019/05/18 13:50:54 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/18 17:28:38 by astripeb          #+#    #+#             */
+/*   Updated: 2019/05/21 23:35:58 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(int c)
+int	ft_putchar(int c)
 {
-	if (c <= 128)
-		write(1, &c, 1);
-	else
-		ft_putchar_utf8(c);
+	write(1, &c, 1);
+	return (1);
 }

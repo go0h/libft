@@ -6,12 +6,13 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:10:53 by astripeb          #+#    #+#             */
-/*   Updated: 2019/05/18 13:46:57 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/09/19 23:26:19 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -42,7 +43,9 @@ void			*ft_memchr(const void *s, int c, size_t n);
 
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
-size_t			ft_strlen(const char *c);
+size_t			ft_strlen(const char *s);
+
+size_t			ft_lstrlen(const int *s);
 
 char			*ft_strdup(const char *s1);
 
@@ -113,27 +116,41 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 
 char			*ft_strjoin(char const *s1, char const *s2);
 
+char			*ft_strjoin_f(char const *s1, char const *s2);
+
+char			*ft_strjoin_s(char const *s1, char const *s2);
+
 char			*ft_strtrim(char const *s);
 
 char			**ft_strsplit(char const *s, char c);
 
 char			*ft_itoa(int n);
 
-void			ft_putchar(int c);
+char			*ft_llitoa(long long int n);
 
-void			ft_putchar_utf8(int c);
+int				ft_putchar(int c);
 
-void			ft_putstr(char const *s);
+int				ft_putchar_fd(int c, int fd);
+
+int				ft_putchar_utf8(int c);
+
+int				ft_putchar_utf8_fd(int c, int fd);
+
+int				ft_putstr(char const *s);
+
+int				ft_putstr_fd(char const *s, int fd);
+
+int				ft_putstr_utf8(int const *s);
+
+int				ft_putstr_utf8_fd(int const *s, int fd);
+
+int				ft_putnstr_utf8_fd(int const *s, int fd, int len);
+
+char			ft_lenwchar(int c);
 
 void			ft_putendl(char const *s);
 
 void			ft_putnbr(int n);
-
-void			ft_putchar_fd(int c, int fd);
-
-void			ft_putchar_utf8_fd(int c, int fd);
-
-void			ft_putstr_fd(char const *s, int fd);
 
 void			ft_putendl_fd(char const *s, int fd);
 
@@ -165,5 +182,22 @@ int				ft_min(int a, int b);
 
 int				ft_abs(int a);
 
+void			ft_to_uppercase(char *str);
+
 int				get_next_line(const int fd, char **line);
+
+int				ft_atoi_ps(const char *str);
+
+void			page_del(t_list **lst);
+
+void			free_tab(char **tab);
+
+int				ft_isdigitstr(char *str);
+
+int				ft_char_count(char *str, char c);
+
+int				ft_len_arr(char **tab);
+
+char			*read_from_file_to_var(int fd);
+
 #endif

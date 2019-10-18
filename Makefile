@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/05/18 13:48:35 by astripeb         ###   ########.fr        #
+#    Updated: 2019/10/18 18:29:40 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,20 +48,20 @@ vpath %.o $(OBJ_DIR)
 
 all: $(NAME)
 
-$(OBJ_DIR):
-	mkdir -p $@
-
 $(NAME): $(OBJ)
 	ar rc $@ $(addprefix $(OBJ_DIR), $(OBJ))
 
-%.o:%.c $(HEADERS) | $(OBJ_DIR)
+$(OBJ):%.o:%.c $(HEADERS) | $(OBJ_DIR)
 	$(CC) $(CFLAGC) $(LFLAGS) -c $< -o $(OBJ_DIR)$@
 
+$(OBJ_DIR):
+	mkdir -p $@
+
 clean:
+	rm -rf $(OBJ)
 	rm -rf $(OBJ_DIR)
 
-fclean:
-	rm -rf $(OBJ_DIR)
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all

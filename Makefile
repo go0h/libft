@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/10/19 10:10:00 by astripeb         ###   ########.fr        #
+#    Updated: 2019/10/19 10:37:26 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SOURCES		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 			ft_putchar_utf8_fd.c ft_llitoa.c ft_strjoin_f.c ft_strjoin_s.c\
 			ft_putstr_utf8.c ft_putstr_utf8_fd.c ft_to_uppercase.c ft_lstrlen.c\
 			ft_putnstr_utf8_fd.c ft_lenwchar.c page_del.c word_len.c\
-			word_count.c ft_isdigitstr.c ft_char_count.c ft_len_arr.c buffer.c
+			word_count.c ft_isdigitstr.c ft_char_count.c ft_len_arr.c buffer.c\
+			ft_atoi_base.c
 
 OBJ = $(SOURCES:.c=.o)
 

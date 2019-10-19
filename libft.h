@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:10:53 by astripeb          #+#    #+#             */
-/*   Updated: 2019/10/19 10:10:39 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/10/19 10:37:08 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,5 +199,7 @@ int				ft_char_count(char *str, char c);
 int				ft_len_arr(char **tab);
 
 char			*read_from_file_to_var(int fd);
+
+int				ft_atoi_base(char *s, int base);
 
 #endif

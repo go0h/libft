@@ -6,15 +6,15 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2019/10/18 18:29:40 by astripeb         ###   ########.fr        #
+#    Updated: 2019/10/19 10:10:00 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 HEADERS		= libft.h
 
-SRC_DIR		= ./src/
-INC_DIR		= ./inc/
+SRC_DIR		= ./
+INC_DIR		= ./
 OBJ_DIR		= ./obj/
 
 CC			= gcc

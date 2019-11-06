@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 17:07:06 by astripeb          #+#    #+#             */
-/*   Updated: 2019/05/18 11:09:42 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/11/07 00:01:49 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int					get_next_line(const int fd, char **line)
 	int				n;
 	char			*temp;
 	char			buf[BUFF_SIZE + 1];
-	static char		*fds[12000];
+	static char		*fds[MAX_FD];
 
 	if (!line || fd < 0 || BUFF_SIZE < 0 || read(fd, buf, 0) < 0)
 		return (-1);

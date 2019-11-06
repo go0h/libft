@@ -6,9 +6,10 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:10:53 by astripeb          #+#    #+#             */
-/*   Updated: 2019/10/19 10:37:08 by astripeb         ###   ########.fr       */
+/*   Updated: 2019/11/07 00:02:07 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -20,7 +21,8 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 
-# define BUFF_SIZE 4096
+# define BUFF_SIZE	4096
+# define MAX_FD		256
 
 typedef struct	s_list
 {

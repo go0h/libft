@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   page_del.c                                         :+:      :+:    :+:   */
+/*   count_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcredibl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:06:40 by pcredibl          #+#    #+#             */
-/*   Updated: 2019/04/22 22:14:32 by pcredibl         ###   ########.fr       */
+/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
+/*   Updated: 2019/06/14 18:50:17 by pcredibl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
-void	page_del(t_list **lst)
+void	count_print(long long int addr, int pr_count)
 {
-	t_list	*temp;
+	int		*p_var;
 
-	if (*lst != NULL)
-	{
-		temp = *lst;
-		while (temp != NULL)
-		{
-			temp = *lst;
-			free(*lst);
-			(*lst)->next = NULL;
-			*lst = temp->next;
-		}
-	}
+	p_var = (int*)addr;
+	*p_var = pr_count;
 }

@@ -6,15 +6,18 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 15:43:43 by astripeb          #+#    #+#             */
-/*   Updated: 2019/11/07 00:01:04 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/03 18:45:42 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include "libft.h"
+# include "ft_memory.h"
+# include "ft_string.h"
+# include "ft_io.h"
+# include "ft_math.h"
+
 # include <stdarg.h>
 # include <stdint.h>
 # include <stddef.h>
@@ -85,7 +88,7 @@ int				set_precision(va_list ap, t_modific *mod, const char *str);
 int				spec_star(int num, t_modific *mod);
 
 /*
-** Functions for add information about formatin the structure
+** Functions for add information about format in the structure
 */
 
 int				ft_ismodific(char c);

@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_lenwchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/06/12 15:58:41 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:16:35 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
+char	ft_lenwchar(int c)
 {
-	int		*p_var;
-
-	p_var = (int*)addr;
-	*p_var = pr_count;
+	if (c < 128)
+		return (1);
+	else if (c < 2048)
+		return (2);
+	else if (c < 65536)
+		return (3);
+	else if (c < 1114112)
+		return (4);
+	return (0);
 }

@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_min.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/18 13:32:02 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:37:20 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
+int		ft_min(int a, int b)
 {
-	int		*p_var;
-
-	p_var = (int*)addr;
-	*p_var = pr_count;
+	return (a > b ? b : a);
 }

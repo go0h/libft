@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/16 16:41:37 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 18:57:02 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_string.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+void		ft_free_arr(char **s)
+{
+	size_t i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+		{
+			free(s[i]);
+			i++;
+		}
+		free(s);
+	}
+	s = NULL;
 }

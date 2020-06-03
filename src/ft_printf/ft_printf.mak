@@ -1,0 +1,22 @@
+SRC_PRINTF = count_print.c\
+			ft_dtoa_2.c\
+			ft_dtoa_3.c\
+			ft_dtoa.c\
+			ft_dtoe.c\
+			ft_fprintf.c\
+			ft_printf.c\
+			ft_putnbr_f.c\
+			long_arithmetic_2.c\
+			long_arithmetic.c\
+			parse_mod.c\
+			print_binary.c\
+			print_char.c\
+			print_double.c\
+			print_num.c\
+			print_pointer.c\
+			print_scientific.c\
+			print_str.c\
+			set_color.c\
+			set_precision.c\
+			utility_func_2.c\
+			utility_func.c

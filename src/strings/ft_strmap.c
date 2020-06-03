@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 21:37:58 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:02:53 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_string.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+char	*ft_strmap(char const *s, char (*f)(char))
+{
+	char	*str;
+	size_t	len;
+	size_t	i;
+
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	str = ft_strnew(len);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = f(s[i]);
+		++i;
+	}
+	str[i] = '\0';
+	return (str);
 }

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 17:04:33 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:30:57 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_memory.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	ch;
+	unsigned char	*str;
+
+	i = 0;
+	ch = (unsigned char)c;
+	str = (unsigned char*)s;
+	while (i < n)
+	{
+		str[i] = ch;
+		++i;
+	}
+	return (s);
 }

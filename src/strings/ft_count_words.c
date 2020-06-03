@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/19 11:22:50 by pcredibl          #+#    #+#             */
+/*   Updated: 2020/06/02 18:58:09 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_string.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+size_t	ft_count_words(char const *s, char c)
+{
+	size_t flag;
+	size_t count;
+	size_t i;
+
+	i = 0;
+	flag = 1;
+	count = 0;
+	if (!s)
+		return (count);
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && flag == 0)
+			flag = 1;
+		else if (s[i] != c && flag == 1)
+		{
+			++count;
+			flag = 0;
+		}
+		++s;
+	}
+	return (count);
 }

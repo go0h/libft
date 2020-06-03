@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/04 21:47:04 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:01:39 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_string.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+char	*ft_strdup(const char *s1)
+{
+	char	*dest;
+	int		i;
+
+	i = 0;
+	while (s1[i] != '\0')
+		++i;
+	dest = (char*)malloc(sizeof(char) * (i + 1));
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		dest[i] = s1[i];
+		++i;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_int_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/05/02 10:42:25 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:37:07 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_math.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+size_t	ft_int_len(int n)
+{
+	size_t i;
+
+	i = 1;
+	while (n / 10 != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }

@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/09 19:43:20 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:30:36 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_memory.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*s_ch;
+	unsigned char	c_ch;
+
+	s_ch = (unsigned char*)s;
+	c_ch = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (s_ch[i] == c_ch)
+			return ((void*)&s_ch[i]);
+		++i;
+	}
+	return (NULL);
 }

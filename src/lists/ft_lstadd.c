@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/11 17:57:32 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:32:54 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_list.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+void	ft_lstadd(t_list **alst, t_list *new)
+{
+	t_list *temp;
+
+	if (alst && *alst && new)
+	{
+		temp = *alst;
+		new->next = temp;
+		*alst = new;
+	}
+	else if (new)
+	{
+		temp = NULL;
+		new->next = temp;
+		*alst = new;
+	}
 }

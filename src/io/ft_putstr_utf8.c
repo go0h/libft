@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_utf8.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/06/07 20:12:02 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:18:04 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#include "ft_io.h"
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+int	ft_putstr_utf8(int const *str)
+{
+	int i;
+
+	i = 0;
+	while (*str)
+	{
+		i += ft_putchar_utf8(*str);
+		++str;
+	}
+	return (i);
 }

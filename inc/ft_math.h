@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_math.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2020/06/02 19:33:44 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 19:36:30 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
-{
-	int		*p_var;
+#ifndef FT_MATH_H
+# define FT_MATH_H
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
-}
+# include <unistd.h>
+
+size_t			ft_int_len(int nbr);
+
+int				ft_max(int a, int b);
+
+int				ft_min(int a, int b);
+
+int				ft_abs(int a);
+
+#endif

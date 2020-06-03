@@ -1,7 +1,5 @@
 # libft
 
-<a href="https://github.com/go0h/libft/blob/master/libft.en.pdf">SUBJECT<a>
-
 Воспроизведение стандартной библиотеки ```libc```, а также добавлены некоторые свои функции для работы со строками.
 
 

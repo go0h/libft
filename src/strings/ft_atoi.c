@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_print.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/30 14:06:50 by pcredibl          #+#    #+#             */
-/*   Updated: 2020/06/03 17:50:32 by astripeb         ###   ########.fr       */
+/*   Created: 2019/04/04 19:46:43 by astripeb          #+#    #+#             */
+/*   Updated: 2020/06/02 18:57:56 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	count_print(long long int addr, int pr_count)
+int					ft_atoi(const char *str)
 {
-	int		*p_var;
+	long int		nb;
+	int				flag;
 
-	p_var = (int*)addr;
-	*p_var = pr_count;
+	nb = 0;
+	while ((*str > 8 && *str < 14) || *str == 32)
+		++str;
+	flag = (*str == '+' || *str == '-') ? (44 - *str++) : 1;
+	while (*str > 47 && *str < 58)
+		nb = nb * 10 + (*str++ - '0');
+	return (nb * flag);
 }

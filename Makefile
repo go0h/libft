@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2020/06/03 19:39:54 by astripeb         ###   ########.fr        #
+#    Updated: 2020/06/03 23:40:11 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,13 @@ SRC_STR_DIR		:= ./src/strings/
 SRC_IO_DIR		:= ./src/io/
 SRC_MATH_DIR	:= ./src/math/
 SRC_LIST_DIR	:= ./src/lists/
+SRC_DYN_DIR		:= ./src/dyn_arr/
 
 INC_DIR			:= ./inc/
 OBJ_DIR			:= ./obj/
 
 CC				:= gcc
-CFLAGS			:= -Wall -Wextra -Werror
+CFLAGS			:= -Wall -Wextra -Werror -g3
 LFLAGS			:= -I $(INC_DIR)
 
 DEPEND			:= -MD -MT
@@ -36,13 +37,15 @@ include $(SRC_STR_DIR)strings.mak
 include $(SRC_IO_DIR)io.mak
 include $(SRC_LIST_DIR)lists.mak
 include $(SRC_MATH_DIR)math.mak
+include $(SRC_DYN_DIR)dyn_arr.mak
 
-OBJ	= $(SRC_PRINTF:.c=.o) $(SRC_IO:.c=.o) $(SRC_LISTS:.c=.o) \
-		$(SRC_MATH:.c=.o) $(SRC_MEM:.c=.o) $(SRC_STR:.c=.o)
+OBJ	= $(SRC_PRINTF:.c=.o) $(SRC_IO:.c=.o) $(SRC_LISTS:.c=.o)\
+		$(SRC_MATH:.c=.o) $(SRC_MEM:.c=.o) $(SRC_STR:.c=.o)\
+		$(SRC_DYN:.c=.o)
 
 vpath %.h	$(INC_DIR)
 vpath %.c	$(SRC_PRINTF_DIR) $(SRC_MEM_DIR) $(SRC_STR_DIR)\
-			$(SRC_IO_DIR) $(SRC_LIST_DIR) $(SRC_MATH_DIR)
+			$(SRC_IO_DIR) $(SRC_LIST_DIR) $(SRC_MATH_DIR) $(SRC_DYN_DIR)
 
 vpath %.o	$(OBJ_DIR)
 
@@ -53,13 +56,13 @@ $(NAME): $(OBJ)
 	ranlib $@
 
 $(OBJ):%.o:%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGC) $(LFLAGS) -c $< -o $(OBJ_DIR)$@ $(DEPEND) $@
+	$(CC) $(CFLAGS) $(LFLAGS) -c $< -o $(OBJ_DIR)$@ $(DEPEND) $@
 
 $(OBJ_DIR):
 	mkdir -p $@
 
 so: $(OBJ)
-	$(CC) $(CFLAGC) $(LFLAGS) -shared $(addprefix $(OBJ_DIR), $(OBJ)) -o $(SO)
+	$(CC) $(CFLAGS) $(LFLAGS) -shared $(addprefix $(OBJ_DIR), $(OBJ)) -o $(SO)
 
 include $(wildcard $(OBJ_DIR)/*.d)
 

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 17:10:53 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/03 18:45:56 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/04 16:44:51 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # include "ft_list.h"
 # include "ft_math.h"
 # include "libftprintf.h"
+# include "ft_darray.h"
 
 #endif

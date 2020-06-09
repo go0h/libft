@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 21:39:29 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/04 17:34:55 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/09 20:09:53 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,18 @@ t_darr			*ft_da_map(t_darr *arr, int (*f)(void*, void*));
 */
 
 t_darr			*ft_da_shrink(t_darr *arr);
+
+/*
+**	Sort array with quick sort algorithm, where:
+**		LESS - checks whether LHS is less than RHS.
+*/
+
+void			ft_da_sort(t_darr *arr, int (*less)(void *, void *));
+
+/*
+**	Returns 1 if the array is sorted into order, dependent on CMP
+*/
+
+int				ft_da_issorted(t_darr *arr, int (*cmp)(void *, void*));
 
 #endif

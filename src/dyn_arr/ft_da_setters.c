@@ -6,12 +6,11 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 22:06:45 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/04 17:01:38 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/09 19:15:01 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_darray.h"
-#include <stdio.h>
 
 int			ft_da_pop_last(t_darr *arr, void *data)
 {

@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2020/06/03 23:40:11 by astripeb         ###   ########.fr        #
+#    Updated: 2020/06/09 20:15:20 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INC_DIR			:= ./inc/
 OBJ_DIR			:= ./obj/
 
 CC				:= gcc
-CFLAGS			:= -Wall -Wextra -Werror -g3
+CFLAGS			:= -Wall -Wextra -Werror
 LFLAGS			:= -I $(INC_DIR)
 
 DEPEND			:= -MD -MT

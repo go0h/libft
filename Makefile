@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2020/06/09 20:15:20 by astripeb         ###   ########.fr        #
+#    Updated: 2020/06/16 09:44:49 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ SRC_MATH_DIR	:= ./src/math/
 SRC_LIST_DIR	:= ./src/lists/
 SRC_DYN_DIR		:= ./src/dyn_arr/
 
-INC_DIR			:= ./inc/
-OBJ_DIR			:= ./obj/
+INC_DIR			:= ./includes/
+OBJ_DIR			:= ./.obj/
 
 CC				:= gcc
-CFLAGS			:= -Wall -Wextra -Werror
+CFLAGS			:= -Wall -Wextra -Werror -g3
 LFLAGS			:= -I $(INC_DIR)
 
 DEPEND			:= -MD -MT

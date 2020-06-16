@@ -6,11 +6,18 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 13:27:45 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:37:16 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/11 22:31:17 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_math.h"
+
 int		ft_max(int a, int b)
+{
+	return (a > b ? a : b);
+}
+
+size_t	ft_maxs(size_t a, size_t b)
 {
 	return (a > b ? a : b);
 }

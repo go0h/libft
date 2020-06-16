@@ -6,13 +6,26 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 10:42:25 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:37:07 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/11 22:29:28 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 
 size_t	ft_int_len(int n)
+{
+	size_t i;
+
+	i = 1;
+	while (n / 10 != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
+}
+
+size_t	ft_size_t_len(size_t n)
 {
 	size_t i;
 

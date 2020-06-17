@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/02 18:45:36 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:40:22 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/17 17:09:07 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+# define FT_HIMAGIC	0x8080808080808080L
+# define FT_LOMAGIC	0x0101010101010101L
 
 int				ft_atoi_base(char *s, int base);
 

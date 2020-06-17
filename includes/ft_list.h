@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/02 19:28:08 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:41:26 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/16 22:22:57 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ void			ft_lstadd(t_list **alst, t_list *new_list);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+void			ft_lst_push_back(t_list **begin, t_list *new);
+
+t_list			*ft_lst_reverse(t_list *src);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:47:16 by astripeb          #+#    #+#             */
-/*   Updated: 2019/10/19 10:11:29 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/18 15:15:49 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ char			*ft_llitoa(long long int n)
 	len = ft_int_len(n);
 	if (n < 0)
 		len += 1;
-	ar = ft_strnew(len);
-	--len;
-	if (!ar)
+	if (!(ar = ft_strnew(len)))
 		return (NULL);
+	--len;
 	if (n < 0)
 		ar[0] = '-';
 	while (n / 10 != 0)

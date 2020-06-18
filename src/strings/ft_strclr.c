@@ -6,20 +6,15 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 18:52:54 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:01:17 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/18 15:32:00 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
+#include "ft_memory.h"
 
 void	ft_strclr(char *s)
 {
-	if (s != NULL)
-	{
-		while (*s)
-		{
-			*s = '\0';
-			++s;
-		}
-	}
+	if (s)
+		ft_memset(s, 0, ft_strlen(s));
 }

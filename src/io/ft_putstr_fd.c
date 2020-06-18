@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:45:38 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:44:39 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/18 22:50:49 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 int	ft_putstr_fd(char const *str, int fd)
 {
+	size_t	len;
+
 	if (str && *str)
 	{
-		write(fd, str, ft_strlen(str));
-		return (ft_strlen(str));
+		len = ft_strlen(str);
+		write(fd, str, len);
+		return (len);
 	}
 	return (0);
 }

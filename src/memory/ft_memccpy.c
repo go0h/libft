@@ -6,33 +6,24 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 19:45:05 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:30:33 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/18 13:38:20 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory.h"
+#include <stdint.h>
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t				i;
-	unsigned char		*dest_ch;
-	const unsigned char	*src_ch;
-	unsigned char		c_ch;
+	void	*ptr;
+	size_t	length;
 
-	dest_ch = (unsigned char*)dest;
-	src_ch = (const unsigned char*)src;
-	c_ch = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	if ((ptr = ft_memchr(src, c, n)))
 	{
-		if (src_ch[i] == c_ch)
-		{
-			dest_ch[i] = src_ch[i];
-			++i;
-			return ((void*)&dest_ch[i]);
-		}
-		dest_ch[i] = src_ch[i];
-		++i;
+		length = ptr - src + 1;
+		ft_memcpy(dest, src, length);
+		return (dest + length);
 	}
+	ft_memcpy(dest, src, n);
 	return (NULL);
 }

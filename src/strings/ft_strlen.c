@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 21:11:36 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/17 18:02:20 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/17 22:30:51 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,26 @@ static size_t	zero_byte(uint64_t *word)
 	return (0);
 }
 
+/*
+**	Align еру pointer to (ptr % sizeof(uint64_t) == 0);
+**	Then iterate with sizeof(uint64_t)
+**	because it read it read too many bytes!
+*/
+
 size_t			ft_strlen(const char *str)
 {
 	uint64_t	*word;
 	uint64_t	abcd;
+	const char	*chr;
 
-	word = (uint64_t*)str;
+	chr = str;
+	while (((uint64_t)chr & (sizeof(uint64_t) - 1)) != 0)
+	{
+		if (!*chr)
+			return (chr - str);
+		++chr;
+	}
+	word = (uint64_t*)chr;
 	while (1)
 	{
 		abcd = (*word - FT_LOMAGIC) & FT_HIMAGIC;

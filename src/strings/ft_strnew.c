@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 18:42:56 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/02 19:43:22 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/18 21:08:19 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ char	*ft_strnew(size_t size)
 {
 	char *str;
 
-	if (size > size + 1)
+	if (size == (size_t)(0 - 1))
 		return (NULL);
-	str = (char*)malloc(sizeof(char) * (size + 1));
-	if (str == NULL)
+	if (!(str = ft_memalloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	ft_bzero((void*)str, size + 1);
 	return (str);
 }

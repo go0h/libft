@@ -48,19 +48,22 @@ static size_t	zero_byte(uint64_t *word)
 }
 
 /*
-**	Align еру pointer to (ptr % sizeof(uint64_t) == 0);
-**	Then iterate with sizeof(uint64_t)
-**	because it read it read too many bytes!
+**	Align pointer to (ptr % sizeof(uint64_t) == 0);
+**	Then iterate with sizeof(uint64_t),
+**	because it read too many bytes!
+**
+**	Determine if a word has a zero byte, look:
+**		https://graphics.stanford.edu/~seander/bithacks.html#ZeroInWord
 */
 
 size_t			ft_strlen(const char *str)
 {
+	const char	*chr;
 	uint64_t	*word;
 	uint64_t	abcd;
-	const char	*chr;
 
-	chr = str;
-	while (((uint64_t)chr & (sizeof(uint64_t) - 1)) != 0)
+	chr = (const char *)str;
+	while (((uint64_t)chr & (sizeof(uint64_t) - 1)))
 	{
 		if (!*chr)
 			return (chr - str);
@@ -69,8 +72,8 @@ size_t			ft_strlen(const char *str)
 	word = (uint64_t*)chr;
 	while (1)
 	{
-		abcd = (*word - FT_LOMAGIC) & FT_HIMAGIC;
-		if (abcd && (abcd & ~(*word)))
+		abcd = *word;
+		if ((abcd - FT_LOMAGIC) & FT_HIMAGIC & (~abcd))
 			return (((const char*)word - str) + zero_byte(word));
 		++word;
 	}

@@ -6,7 +6,7 @@
 #    By: astripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 17:19:04 by astripeb          #+#    #+#              #
-#    Updated: 2020/06/17 18:03:11 by astripeb         ###   ########.fr        #
+#    Updated: 2020/06/22 21:17:04 by astripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,13 @@ SRC_IO_DIR		:= ./src/io/
 SRC_MATH_DIR	:= ./src/math/
 SRC_LIST_DIR	:= ./src/lists/
 SRC_DYN_DIR		:= ./src/dyn_arr/
+SRC_TREE_DIR	:= ./src/rb_tree/
 
 INC_DIR			:= ./includes/
 OBJ_DIR			:= ./.obj/
 
 CC				:= gcc
-CFLAGS			:= -Wall -Wextra -Werror
+CFLAGS			:= -Wall -Wextra -Werror -g3
 LFLAGS			:= -I $(INC_DIR)
 
 DEPEND			:= -MD -MT
@@ -38,14 +39,16 @@ include $(SRC_IO_DIR)io.mak
 include $(SRC_LIST_DIR)lists.mak
 include $(SRC_MATH_DIR)math.mak
 include $(SRC_DYN_DIR)dyn_arr.mak
+include $(SRC_TREE_DIR)rb_tree.mak
 
 OBJ	= $(SRC_PRINTF:.c=.o) $(SRC_IO:.c=.o) $(SRC_LISTS:.c=.o)\
 		$(SRC_MATH:.c=.o) $(SRC_MEM:.c=.o) $(SRC_STR:.c=.o)\
-		$(SRC_DYN:.c=.o)
+		$(SRC_DYN:.c=.o) $(SRC_TREE:.c=.o)
 
 vpath %.h	$(INC_DIR)
 vpath %.c	$(SRC_PRINTF_DIR) $(SRC_MEM_DIR) $(SRC_STR_DIR)\
-			$(SRC_IO_DIR) $(SRC_LIST_DIR) $(SRC_MATH_DIR) $(SRC_DYN_DIR)
+			$(SRC_IO_DIR) $(SRC_LIST_DIR) $(SRC_MATH_DIR)\
+			$(SRC_DYN_DIR) $(SRC_TREE_DIR)
 
 vpath %.o	$(OBJ_DIR)
 
@@ -77,4 +80,4 @@ re: fclean all
 
 .PHONY: clean fclean re so
 
-.SILENT: all $(NAME) $(OBJ) $(OBJ_DIR) clean fclean re so
+.SILENT: all $(NAME) $(OBJ) $(OBJ_DIR) clean fclean re

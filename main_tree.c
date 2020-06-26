@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 18:56:07 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 23:00:19 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/26 20:36:09 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,7 +232,7 @@ void	test_delete_basic(void)
 	t_darr		*arr;
 
 	srand(time(NULL));
-	size = rand() % 100000;
+	size = rand() % 10000;
 	tree = ft_rbt_new(sizeof(FT_TYPE), &cmp_tree, &delete);
 	arr = ft_da_new(10, sizeof(FT_TYPE));
 	for  (int i = 0; i < size; ++i)
@@ -255,6 +255,37 @@ void	test_delete_basic(void)
 	ft_printf("{green}%s = OK{eoc}\n", __ASSERT_FUNCTION);
 }
 
+void	test_delete_and_balance(void)
+{
+	t_darr		*arr;
+	t_rb_tree	*tree;
+	FT_TYPE		val;
+	size_t		size;
+
+	srand(time(NULL));
+	for (int i = 0; i < 100; ++i)
+	{
+		size = rand() % 10000;
+		arr = ft_da_new(size, sizeof(FT_TYPE));
+		tree = ft_rbt_new(sizeof(FT_TYPE), &cmp_tree, &delete);
+		for (size_t j = 0; j < size; ++j)
+		{
+			val = rand() % 20000 - 10000;
+			ft_da_add(arr, &val);
+			ft_rbt_add(tree, &val);
+		}
+		for (size_t j = 0; j < size; ++j)
+		{
+			val = *(FT_TYPE*)ft_da_get_pointer(arr, j);
+			ft_rbt_delete_val(tree, &val);
+			// assert(ft_rbt_check_balance(tree->root, RB_BLACK) == true);
+		}
+		ft_da_delete(&arr);
+		ft_rbt_delete_tree(&tree);
+	}
+	ft_printf("{green}%s = OK{eoc}\n", __ASSERT_FUNCTION);
+}
+
 int main(void)
 {
 	ft_printf("size tree = %lu, size node = %lu\n",\
@@ -265,6 +296,7 @@ int main(void)
 	// test_distribution();
 	// test_find();
 	// test_balance();
-	test_delete_basic();
+	// test_delete_basic();
+	test_delete_and_balance();
 	return (EXIT_SUCCESS);
 }

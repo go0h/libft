@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 17:13:38 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 19:21:04 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/26 20:43:20 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 # define FATHER		(node->parent)
 # define GRFATHER	(node->parent->parent)
-# define R_UNCLE	(node->parent->parent->right)
 # define L_UNCLE	(node->parent->parent->left)
+# define R_UNCLE	(node->parent->parent->right)
 # define L_SON		(node->parent->left)
 # define R_SON		(node->parent->right)
+# define L_NEPHEW	(brother->left)
+# define R_NEPHEW	(brother->right)
 
 void		rotate_right(t_tnode **root, t_tnode *node);
 

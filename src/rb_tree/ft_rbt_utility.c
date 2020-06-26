@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 13:08:37 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 22:46:59 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/25 16:46:06 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	*ft_rbt_get_data(t_rb_tree *tree, void *data)
 	}
 	return (NULL);
 }
-
 
 t_tnode	*ft_rbt_get_node(t_rb_tree *tree, void *data)
 {

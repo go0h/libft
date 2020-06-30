@@ -6,11 +6,25 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 13:08:37 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/25 16:46:06 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/30 14:27:03 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_rbtree.h"
+#include "ft_rbt_hidden.h"
+
+bool 	isred(t_tnode *node)
+{
+	return (node && node->color == RB_RED);
+}
+
+void	del_one_node(t_tnode *node, void (*del)(void *))
+{
+	if (!node)
+		return ;
+	del(node->content);
+	ft_memset(node, 0, sizeof(t_tnode));
+	free(node);
+}
 
 void	*ft_rbt_get_data(t_rb_tree *tree, void *data)
 {

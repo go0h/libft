@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 18:56:07 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/26 20:36:09 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/30 18:54:50 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <assert.h>
 #include <time.h>
 
-# define FT_TYPE size_t
+# define FT_TYPE int
 
-int	cmp_tree(void *d1, void *d2)
+int		cmp_tree(void *d1, void *d2)
 {
 	FT_TYPE n1 = *(FT_TYPE*)d1;
 	FT_TYPE n2 = *(FT_TYPE*)d2;
@@ -27,14 +27,14 @@ int	cmp_tree(void *d1, void *d2)
 	return (1);
 }
 
-int	cmp_arr(void *d1, void *d2)
+int		cmp_arr(void *d1, void *d2)
 {
 	FT_TYPE n1 = *(FT_TYPE*)d1;
 	FT_TYPE n2 = *(FT_TYPE*)d2;
 	return (n1 < n2);
 }
 
-void delete(void *data)
+void 	delete(void *data)
 {
 	free(data);
 }
@@ -44,14 +44,27 @@ void	print_node(void *data)
 	ft_printf("%d\n", *(int*)data);
 }
 
-bool 	ft_rbt_check_balance(t_tnode *root, t_rb_color prev_c)
+bool	g_balance = true;
+FT_TYPE	g_prev = INT32_MIN;
+
+void	check_less(void *data)
+{
+	if (g_prev > *(FT_TYPE*)data)
+	{
+		g_balance = false;
+		ft_printf("%d > %d\n", g_prev, *(FT_TYPE*)data);
+	}
+	g_prev = *(FT_TYPE*)data;
+}
+
+bool 	ft_rbt_check_colors(t_tnode *root, t_rb_color prev_c)
 {
 	if (!root)
 		return (true);
 	if (prev_c == RB_RED && root->color == RB_RED)
 		return (false);
-	return (ft_rbt_check_balance(root->left, root->color) &&\
-		ft_rbt_check_balance(root->right, root->color));
+	return (ft_rbt_check_colors(root->left, root->color) &&\
+		ft_rbt_check_colors(root->right, root->color));
 }
 
 void	test_basic(void)
@@ -216,9 +229,12 @@ void	test_balance(void)
 		{
 			val = rand() % 20000 - 10000;
 			ft_rbt_add(tree, &val);
+			g_prev = INT32_MIN;
+			ft_rbt_infix(tree, &check_less);
+			assert(g_balance == true);
+			assert(ft_rbt_check_colors(tree->root, RB_BLACK) == true);
 		}
 		assert(size == ft_rbt_size(tree));
-		assert(ft_rbt_check_balance(tree->root, RB_BLACK) == true);
 		ft_rbt_delete_tree(&tree);
 	}
 	ft_printf("{green}%s = OK{eoc}\n", __ASSERT_FUNCTION);
@@ -278,7 +294,7 @@ void	test_delete_and_balance(void)
 		{
 			val = *(FT_TYPE*)ft_da_get_pointer(arr, j);
 			ft_rbt_delete_val(tree, &val);
-			// assert(ft_rbt_check_balance(tree->root, RB_BLACK) == true);
+			assert(ft_rbt_check_colors(tree->root, RB_BLACK) == true);
 		}
 		ft_da_delete(&arr);
 		ft_rbt_delete_tree(&tree);
@@ -296,7 +312,7 @@ int main(void)
 	// test_distribution();
 	// test_find();
 	// test_balance();
-	// test_delete_basic();
+	test_delete_basic();
 	test_delete_and_balance();
 	return (EXIT_SUCCESS);
 }

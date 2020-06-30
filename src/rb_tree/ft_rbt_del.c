@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 19:18:25 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/26 21:02:07 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/30 19:23:28 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,62 +15,37 @@
 static void	swap(t_tnode *n1, t_tnode *n2)
 {
 	void		*temp;
-	t_rb_color	tc;
 
 	temp = n1->content;
 	n1->content = n2->content;
 	n2->content = temp;
-	tc = n1->color;
-	n1->color = n2->color;
-	n2->color = tc;
 }
 
-void	del_one_node(t_tnode *node, void (*del)(void *))
-{
-	if (!node)
-		return ;
-	del(node->content);
-	ft_memset(node, 0, sizeof(t_tnode));
-	free(node);
-}
-
-static inline bool black_nephews(t_tnode *brother)
-{
-	if (brother == NULL)
-		return (false);
-	if (L_NEPHEW == NULL && R_NEPHEW == NULL)
-		return (true);
-	else if (L_NEPHEW == NULL)
-		return (R_NEPHEW->color == RB_BLACK);
-	else if (R_NEPHEW == NULL)
-		return (L_NEPHEW->color == RB_BLACK);
-	return (L_NEPHEW->color == RB_BLACK && R_NEPHEW->color == RB_BLACK);
-}
 
 void		normalize(t_tnode **root, t_tnode *node)
 {
 	t_tnode *brother;
 
-	while (node != *root && FATHER && node->color == RB_BLACK)
+	while (node != *root && node->color == RB_BLACK)
 	{
 		if (node == L_SON)
 		{
-			brother = FATHER->right;
-			if (brother && brother->color == RB_RED)
+			brother = R_SON;
+			if (isred(brother))
 			{
 				brother->color = RB_BLACK;
 				FATHER->color = RB_RED;
 				rotate_left(root, FATHER);
-				brother = FATHER->right;
+				brother = R_SON;
 			}
-			if (black_nephews(brother))
+			if (brother && !isred(brother->left) && !isred(brother->right))
 			{
 				brother->color = RB_RED;
 				node = FATHER;
 			}
 			else
 			{
-				if (R_NEPHEW->color == RB_BLACK)
+				if (!isred(R_NEPHEW))
 				{
 					L_NEPHEW->color = RB_BLACK;
 					brother->color = RB_RED;
@@ -86,22 +61,22 @@ void		normalize(t_tnode **root, t_tnode *node)
 		}
 		else
 		{
-			brother = FATHER->left;
-			if (brother && brother->color == RB_RED)
+			brother = L_SON;
+			if (isred(brother))
 			{
 				brother->color = RB_BLACK;
 				FATHER->color = RB_RED;
 				rotate_right(root, FATHER);
-				brother = FATHER->left;
+				brother = L_SON;
 			}
-			if (black_nephews(brother))
+			if (brother && !isred(brother->left) && !isred(brother->right))
 			{
 				brother->color = RB_RED;
 				node = FATHER;
 			}
 			else
 			{
-				if (L_NEPHEW->color == RB_BLACK)
+				if (!isred(L_NEPHEW))
 				{
 					R_NEPHEW->color = RB_BLACK;
 					brother->color = RB_RED;
@@ -109,14 +84,14 @@ void		normalize(t_tnode **root, t_tnode *node)
 					brother = FATHER->left;
 				}
 				brother->color = FATHER->color;
-				L_NEPHEW->color = RB_BLACK;
 				FATHER->color = RB_BLACK;
+				L_NEPHEW->color = RB_BLACK;
 				rotate_right(root, FATHER);
 				node = *root;
 			}
 		}
 	}
-	node->color = RB_BLACK;
+	(*root)->color = RB_BLACK;
 }
 
 /*

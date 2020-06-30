@@ -6,33 +6,11 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 17:12:42 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 15:02:32 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/30 18:16:42 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbt_hidden.h"
-
-void	rotate_right(t_tnode **root, t_tnode *y)
-{
-	t_tnode	*x;
-
-	x = y->left;
-	x->parent = y->parent;
-	y->parent = x;
-	y->left = x->right;
-	if (x->parent != NULL)
-	{
-		if (y == x->parent->left)
-			x->parent->left = x;
-		else
-			x->parent->right = x;
-	}
-	else
-		*root = x;
-	if (y->left != NULL)
-		y->left->parent = y;
-	x->right = y;
-}
 
 void	rotate_left(t_tnode **root, t_tnode *y)
 {
@@ -40,8 +18,6 @@ void	rotate_left(t_tnode **root, t_tnode *y)
 
 	x = y->right;
 	x->parent = y->parent;
-	y->parent = x;
-	y->right = x->left;
 	if (x->parent != NULL)
 	{
 		if (y == x->parent->left)
@@ -51,9 +27,33 @@ void	rotate_left(t_tnode **root, t_tnode *y)
 	}
 	else
 		*root = x;
-	if (y->right != NULL)
-		y->right->parent = y;
+	y->right = x->left;
+	if (x->left != NULL)
+		x->left->parent = y;
+	y->parent = x;
 	x->left = y;
+}
+
+void	rotate_right(t_tnode **root, t_tnode *y)
+{
+	t_tnode	*x;
+
+	x = y->left;
+	x->parent = y->parent;
+	if (x->parent != NULL)
+	{
+		if (y == x->parent->left)
+			x->parent->left = x;
+		else
+			x->parent->right = x;
+	}
+	else
+		*root = x;
+	y->left = x->right;
+	if (x->right != NULL)
+		x->right->parent = y;
+	y->parent = x;
+	x->right = y;
 }
 
 size_t	get_size(t_tnode *node)

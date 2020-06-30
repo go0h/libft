@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 19:12:04 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 13:38:21 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/06/30 19:07:26 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static void		normalize(t_tnode **root, t_tnode *node)
 
 	if (node == *root)
 		return ;
-	while (FATHER && FATHER->color == RB_RED && GRFATHER)
+	while (isred(FATHER) && GRFATHER)
 	{
 		if (FATHER == L_UNCLE)
 		{
 			uncle = R_UNCLE;
-			if (uncle && uncle->color == RB_RED)
+			if (isred(uncle))
 			{
 				FATHER->color = RB_BLACK;
 				uncle->color = RB_BLACK;
@@ -45,7 +45,7 @@ static void		normalize(t_tnode **root, t_tnode *node)
 		else
 		{
 			uncle = L_UNCLE;
-			if (uncle && uncle->color == RB_RED)
+			if (isred(uncle))
 			{
 				FATHER->color = RB_BLACK;
 				uncle->color = RB_BLACK;

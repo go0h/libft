@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 13:08:37 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/30 14:27:03 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 09:33:03 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_rbt_get_data(t_rb_tree *tree, void *data)
 	t_tnode	*node;
 
 	node = tree->root;
-	while (node != NULL)
+	while (node)
 	{
 		ret = tree->cmp(data, node->content);
 		if (!ret)
@@ -48,7 +48,7 @@ t_tnode	*ft_rbt_get_node(t_rb_tree *tree, void *data)
 	t_tnode	*node;
 
 	node = tree->root;
-	while (node != NULL)
+	while (node)
 	{
 		ret = tree->cmp(data, node->content);
 		if (!ret)
@@ -64,7 +64,7 @@ void	ft_rbt_get_value(t_rb_tree *tree, void *data, void *value)
 	t_tnode	*node;
 
 	node = tree->root;
-	while (node != NULL)
+	while (node)
 	{
 		ret = tree->cmp(data, node->content);
 		if (!ret)

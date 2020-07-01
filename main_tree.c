@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 18:56:07 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/30 18:54:50 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 13:06:44 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	check_less(void *data)
 
 bool 	ft_rbt_check_colors(t_tnode *root, t_rb_color prev_c)
 {
-	if (!root)
+	if (root == NULL)
 		return (true);
 	if (prev_c == RB_RED && root->color == RB_RED)
 		return (false);
@@ -306,12 +306,12 @@ int main(void)
 {
 	ft_printf("size tree = %lu, size node = %lu\n",\
 				sizeof(t_rb_tree), sizeof(t_tnode));
-	// test_basic();
-	// test_big_add();
-	// test_stress_add();
-	// test_distribution();
-	// test_find();
-	// test_balance();
+	test_basic();
+	test_big_add();
+	test_stress_add();
+	test_distribution();
+	test_find();
+	test_balance();
 	test_delete_basic();
 	test_delete_and_balance();
 	return (EXIT_SUCCESS);

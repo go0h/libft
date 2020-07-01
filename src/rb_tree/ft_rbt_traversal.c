@@ -6,11 +6,38 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 21:04:35 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 15:03:30 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 09:32:36 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbt_hidden.h"
+
+static void	prefix_order(t_tnode *node, void (*f)(void *))
+{
+	if (node == NULL)
+		return ;
+	f(node->content);
+	prefix_order(node->left, f);
+	prefix_order(node->right, f);
+}
+
+static void infix_order(t_tnode *node, void (*f)(void *))
+{
+	if (node == NULL)
+		return ;
+	infix_order(node->left, f);
+	f(node->content);
+	infix_order(node->right, f);
+}
+
+static void	suffix_order(t_tnode *node, void (*f)(void *))
+{
+	if (node == NULL)
+		return ;
+	suffix_order(node->left, f);
+	suffix_order(node->right, f);
+	f(node->content);
+}
 
 void		ft_rbt_prefix(t_rb_tree *tree, void (*f)(void *))
 {
@@ -20,15 +47,6 @@ void		ft_rbt_prefix(t_rb_tree *tree, void (*f)(void *))
 void		ft_rbt_infix(t_rb_tree *tree, void (*f)(void *))
 {
 	infix_order(tree->root, f);
-}
-
-static void	suffix_order(t_tnode *node, void (*f)(void *))
-{
-	if (!node)
-		return ;
-	suffix_order(node->left, f);
-	suffix_order(node->right, f);
-	f(node->content);
 }
 
 void		ft_rbt_suffix(t_rb_tree *tree, void (*f)(void *))

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 18:51:03 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/24 17:09:04 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 09:31:24 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ t_tnode		*ft_rbt_new_node(void *content, size_t cont_size)
 	return (node);
 }
 
-static void	del_subtree(t_tnode *node, void (*del)(void *))
+static void	del_subtree(t_rb_tree *tree, t_tnode *node)
 {
-	if (!node)
+	if (node == NULL)
 		return ;
-	del_subtree(node->left, del);
-	del_subtree(node->right, del);
-	del(node->content);
+	del_subtree(tree, node->left);
+	del_subtree(tree, node->right);
+	tree->del(node->content);
 	ft_memset(node, 0, sizeof(t_tnode));
 	free(node);
 }
@@ -56,7 +56,7 @@ void		ft_rbt_delete_tree(t_rb_tree **tree)
 {
 	if (!tree || !*tree)
 		return ;
-	del_subtree((*tree)->root, (*tree)->del);
+	del_subtree(*tree, (*tree)->root);
 	ft_memset(*tree, 0, sizeof(t_rb_tree));
 	free(*tree);
 }

@@ -6,17 +6,17 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 19:12:04 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/30 19:07:26 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 09:29:36 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbt_hidden.h"
 
-static void		normalize(t_tnode **root, t_tnode *node)
+static void		normalize(t_rb_tree *tree, t_tnode *node)
 {
 	t_tnode *uncle;
 
-	if (node == *root)
+	if (node == tree->root)
 		return ;
 	while (isred(FATHER) && GRFATHER)
 	{
@@ -35,11 +35,11 @@ static void		normalize(t_tnode **root, t_tnode *node)
 				if (node == R_SON)
 				{
 					node = node->parent;
-					rotate_left(root, node);
+					rotate_left(tree, node);
 				}
 				FATHER->color = RB_BLACK;
 				GRFATHER->color = RB_RED;
-				rotate_right(root, GRFATHER);
+				rotate_right(tree, GRFATHER);
 			}
 		}
 		else
@@ -57,15 +57,15 @@ static void		normalize(t_tnode **root, t_tnode *node)
 				if (node == L_SON)
 				{
 					node = node->parent;
-					rotate_right(root, node);
+					rotate_right(tree, node);
 				}
 				FATHER->color = RB_BLACK;
 				GRFATHER->color = RB_RED;
-				rotate_left(root, GRFATHER);
+				rotate_left(tree, GRFATHER);
 			}
 		}
 	}
-	(*root)->color = RB_BLACK;
+	tree->root->color = RB_BLACK;
 }
 
 
@@ -87,7 +87,7 @@ static void		add_node(t_rb_tree *tree, t_tnode *new)
 		parent->left = new;
 	else
 		parent->right = new;
-	normalize(&tree->root, new);
+	normalize(tree, new);
 }
 
 bool		ft_rbt_add(t_rb_tree *tree, void *data)

@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 19:18:25 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/30 19:23:28 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 13:02:19 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static void	swap(t_tnode *n1, t_tnode *n2)
 }
 
 
-void		normalize(t_tnode **root, t_tnode *node)
+void		normalize(t_rb_tree *tree, t_tnode *node)
 {
 	t_tnode *brother;
 
-	while (node != *root && node->color == RB_BLACK)
+	while (node != tree->root && !isred(node))
 	{
 		if (node == L_SON)
 		{
@@ -35,7 +35,7 @@ void		normalize(t_tnode **root, t_tnode *node)
 			{
 				brother->color = RB_BLACK;
 				FATHER->color = RB_RED;
-				rotate_left(root, FATHER);
+				rotate_left(tree, FATHER);
 				brother = R_SON;
 			}
 			if (brother && !isred(brother->left) && !isred(brother->right))
@@ -45,18 +45,21 @@ void		normalize(t_tnode **root, t_tnode *node)
 			}
 			else
 			{
-				if (!isred(R_NEPHEW))
+				if (brother)
 				{
-					L_NEPHEW->color = RB_BLACK;
-					brother->color = RB_RED;
-					rotate_right(root, brother);
-					brother = FATHER->right;
+					if (!isred(R_NEPHEW))
+					{
+						L_NEPHEW->color = RB_BLACK;
+						brother->color = RB_RED;
+						rotate_right(tree, brother);
+						brother = FATHER->right;
+					}
+					FATHER->color = RB_BLACK;
+					brother->color = FATHER->color;
+					R_NEPHEW->color = RB_BLACK;
+					rotate_left(tree, FATHER);
 				}
-				brother->color = FATHER->color;
-				FATHER->color = RB_BLACK;
-				R_NEPHEW->color = RB_BLACK;
-				rotate_left(root, FATHER);
-				node = *root;
+				node = tree->root;
 			}
 		}
 		else
@@ -66,7 +69,7 @@ void		normalize(t_tnode **root, t_tnode *node)
 			{
 				brother->color = RB_BLACK;
 				FATHER->color = RB_RED;
-				rotate_right(root, FATHER);
+				rotate_right(tree, FATHER);
 				brother = L_SON;
 			}
 			if (brother && !isred(brother->left) && !isred(brother->right))
@@ -76,22 +79,26 @@ void		normalize(t_tnode **root, t_tnode *node)
 			}
 			else
 			{
-				if (!isred(L_NEPHEW))
+				if (brother)
 				{
-					R_NEPHEW->color = RB_BLACK;
-					brother->color = RB_RED;
-					rotate_left(root, brother);
-					brother = FATHER->left;
+					if (!isred(L_NEPHEW))
+					{
+						R_NEPHEW->color = RB_BLACK;
+						brother->color = RB_RED;
+						rotate_left(tree, brother);
+						brother = FATHER->left;
+					}
+					FATHER->color = RB_BLACK;
+					brother->color = FATHER->color;
+					L_NEPHEW->color = RB_BLACK;
+					rotate_right(tree, FATHER);
 				}
-				brother->color = FATHER->color;
-				FATHER->color = RB_BLACK;
-				L_NEPHEW->color = RB_BLACK;
-				rotate_right(root, FATHER);
-				node = *root;
+				node = tree->root;
 			}
 		}
 	}
-	(*root)->color = RB_BLACK;
+	node->color = RB_BLACK;
+	tree->root->color = RB_BLACK;
 }
 
 /*
@@ -141,7 +148,7 @@ void	ft_rbt_delete_val(t_rb_tree *tree, void *data)
 	if (x != y)
 		swap(x, y);
 	if (y->color == RB_BLACK && temp)
-		normalize(&tree->root, temp);
+		normalize(tree, temp);
 	tree->size -= 1;
 	del_one_node(y, tree->del);
 }

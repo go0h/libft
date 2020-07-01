@@ -6,23 +6,79 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 19:18:25 by astripeb          #+#    #+#             */
-/*   Updated: 2020/07/01 13:02:19 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 19:25:48 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_rbt_hidden.h"
 
-static void	swap(t_tnode *n1, t_tnode *n2)
+static void		red_brother(t_rb_tree *tree, t_tnode *node, t_tnode *brother)
 {
-	void		*temp;
-
-	temp = n1->content;
-	n1->content = n2->content;
-	n2->content = temp;
+	brother->color = RB_BLACK;
+	FATHER->color = RB_RED;
+	if (node == L_SON)
+		rotate_left(tree, FATHER);
+	else
+		rotate_right(tree, FATHER);
 }
 
+static t_tnode	*left_case(t_rb_tree *tree, t_tnode *node, t_tnode *brother)
+{
+	if (brother && !isred(brother->left) && !isred(brother->right))
+	{
+		brother->color = RB_RED;
+		node = FATHER;
+	}
+	else
+	{
+		if (brother)
+		{
+			if (!isred(R_NEPHEW))
+			{
+				L_NEPHEW->color = RB_BLACK;
+				brother->color = RB_RED;
+				rotate_right(tree, brother);
+				brother = FATHER->right;
+			}
+			FATHER->color = RB_BLACK;
+			brother->color = FATHER->color;
+			R_NEPHEW->color = RB_BLACK;
+			rotate_left(tree, FATHER);
+		}
+		node = tree->root;
+	}
+	return (node);
+}
 
-void		normalize(t_rb_tree *tree, t_tnode *node)
+static t_tnode	*right_case(t_rb_tree *tree, t_tnode *node, t_tnode *brother)
+{
+	if (brother && !isred(brother->left) && !isred(brother->right))
+	{
+		brother->color = RB_RED;
+		node = FATHER;
+	}
+	else
+	{
+		if (brother)
+		{
+			if (!isred(L_NEPHEW))
+			{
+				R_NEPHEW->color = RB_BLACK;
+				brother->color = RB_RED;
+				rotate_left(tree, brother);
+				brother = FATHER->left;
+			}
+			FATHER->color = RB_BLACK;
+			brother->color = FATHER->color;
+			L_NEPHEW->color = RB_BLACK;
+			rotate_right(tree, FATHER);
+		}
+		node = tree->root;
+	}
+	return (node);
+}
+
+static void		normalize(t_rb_tree *tree, t_tnode *node)
 {
 	t_tnode *brother;
 
@@ -32,96 +88,25 @@ void		normalize(t_rb_tree *tree, t_tnode *node)
 		{
 			brother = R_SON;
 			if (isred(brother))
-			{
-				brother->color = RB_BLACK;
-				FATHER->color = RB_RED;
-				rotate_left(tree, FATHER);
-				brother = R_SON;
-			}
-			if (brother && !isred(brother->left) && !isred(brother->right))
-			{
-				brother->color = RB_RED;
-				node = FATHER;
-			}
-			else
-			{
-				if (brother)
-				{
-					if (!isred(R_NEPHEW))
-					{
-						L_NEPHEW->color = RB_BLACK;
-						brother->color = RB_RED;
-						rotate_right(tree, brother);
-						brother = FATHER->right;
-					}
-					FATHER->color = RB_BLACK;
-					brother->color = FATHER->color;
-					R_NEPHEW->color = RB_BLACK;
-					rotate_left(tree, FATHER);
-				}
-				node = tree->root;
-			}
+				red_brother(tree, node, brother);
+			node = left_case(tree, node, R_SON);
 		}
 		else
 		{
 			brother = L_SON;
 			if (isred(brother))
-			{
-				brother->color = RB_BLACK;
-				FATHER->color = RB_RED;
-				rotate_right(tree, FATHER);
-				brother = L_SON;
-			}
-			if (brother && !isred(brother->left) && !isred(brother->right))
-			{
-				brother->color = RB_RED;
-				node = FATHER;
-			}
-			else
-			{
-				if (brother)
-				{
-					if (!isred(L_NEPHEW))
-					{
-						R_NEPHEW->color = RB_BLACK;
-						brother->color = RB_RED;
-						rotate_left(tree, brother);
-						brother = FATHER->left;
-					}
-					FATHER->color = RB_BLACK;
-					brother->color = FATHER->color;
-					L_NEPHEW->color = RB_BLACK;
-					rotate_right(tree, FATHER);
-				}
-				node = tree->root;
-			}
+				red_brother(tree, node, brother);
+			node = right_case(tree, node, L_SON);
 		}
 	}
 	node->color = RB_BLACK;
-	tree->root->color = RB_BLACK;
 }
 
-/*
-**	Если у неё только один ребёнок, то делаем у
-**	родителя ссылку на него вместо этой вершины.
-**
-**	Если же имеются оба ребёнка,
-**	то находим вершину со следующим значением ключа.
-**	У такой вершины нет левого ребёнка
-**	(так как такая вершина находится в правом поддереве исходной
-**	вершины и она самая левая в нем, иначе бы мы взяли ее левого ребенка.
-**	Иными словами сначала мы переходим в правое поддерево,
-**	а после спускаемся вниз в левое до тех пор,
-**	пока у вершины есть левый ребенок).
-**	Удаляем уже эту вершину описанным во втором пункте способом,
-**	скопировав её ключ в изначальную вершину.
-*/
-
-void	ft_rbt_delete_val(t_rb_tree *tree, void *data)
+void			ft_rbt_delete_val(t_rb_tree *tree, void *data)
 {
 	t_tnode	*x;
 	t_tnode	*y;
-	t_tnode	*temp;
+	t_tnode	*child;
 
 	if (!(x = ft_rbt_get_node(tree, data)))
 		return ;
@@ -133,22 +118,14 @@ void	ft_rbt_delete_val(t_rb_tree *tree, void *data)
 		while (y->left != NULL)
 			y = y->left;
 	}
-	temp = y->left ? y->left : y->right;
-	if (temp)
-		temp->parent = y->parent;
-	if (y->parent == NULL)
-		tree->root = temp;
-	else
-	{
-		if (y == y->parent->left)
-			y->parent->left = temp;
-		else
-			y->parent->right = temp;
-	}
+	child = y->left ? y->left : y->right;
+	replace_node(tree, y, child);
 	if (x != y)
-		swap(x, y);
-	if (y->color == RB_BLACK && temp)
-		normalize(tree, temp);
+		swap_content(x, y);
+	if (child && y->color == RB_BLACK)
+		normalize(tree, child);
 	tree->size -= 1;
-	del_one_node(y, tree->del);
+	tree->del(y->content);
+	ft_memset(y, 0, sizeof(t_tnode));
+	free(y);
 }

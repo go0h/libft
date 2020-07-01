@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 21:04:35 by astripeb          #+#    #+#             */
-/*   Updated: 2020/07/01 09:32:36 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 19:17:27 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,13 @@ static void	prefix_order(t_tnode *node, void (*f)(void *))
 	prefix_order(node->right, f);
 }
 
-static void infix_order(t_tnode *node, void (*f)(void *))
+static void	infix_order(t_tnode *node, void (*f)(void *))
 {
 	if (node == NULL)
 		return ;
 	infix_order(node->left, f);
 	f(node->content);
 	infix_order(node->right, f);
-}
-
-static void	suffix_order(t_tnode *node, void (*f)(void *))
-{
-	if (node == NULL)
-		return ;
-	suffix_order(node->left, f);
-	suffix_order(node->right, f);
-	f(node->content);
 }
 
 void		ft_rbt_prefix(t_rb_tree *tree, void (*f)(void *))

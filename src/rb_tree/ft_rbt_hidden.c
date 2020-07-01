@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 17:12:42 by astripeb          #+#    #+#             */
-/*   Updated: 2020/07/01 10:18:46 by astripeb         ###   ########.fr       */
+/*   Updated: 2020/07/01 19:15:32 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,28 @@ size_t	get_size(t_tnode *node)
 	if (node == NULL)
 		return (0);
 	return (get_size(node->left) + get_size(node->right) + 1);
+}
+
+void	swap_content(t_tnode *n1, t_tnode *n2)
+{
+	void		*temp;
+
+	temp = n1->content;
+	n1->content = n2->content;
+	n2->content = temp;
+}
+
+void	replace_node(t_rb_tree *tree, t_tnode *y, t_tnode *child)
+{
+	if (child)
+		child->parent = y->parent;
+	if (y->parent == NULL)
+		tree->root = child;
+	else
+	{
+		if (y == y->parent->left)
+			y->parent->left = child;
+		else
+			y->parent->right = child;
+	}
 }

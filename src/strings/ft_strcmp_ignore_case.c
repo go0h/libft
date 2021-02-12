@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 20:49:31 by astripeb          #+#    #+#             */
-/*   Updated: 2021/02/12 20:55:13 by astripeb         ###   ########.fr       */
+/*   Updated: 2021/02/12 21:35:25 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ int			ft_strcmp_ignore_case(const char *s1, const char *s2)
 	}
 	return (ft_tolower(*s1_ch) - ft_tolower(*s2_ch));
 }
-

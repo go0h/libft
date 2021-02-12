@@ -44,4 +44,5 @@ SRC_STR = ft_atoi_base.c\
 			ft_strtrim.c\
 			ft_tolower.c\
 			ft_toupper.c\
-			ft_to_uppercase.c
+			ft_to_uppercase.c\
+			ft_strcmp_ignore_case.c

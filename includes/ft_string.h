@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/02 18:45:36 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/17 20:18:06 by astripeb         ###   ########.fr       */
+/*   Updated: 2021/02/12 20:52:57 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,7 @@ void			ft_to_uppercase(char *str);
 int				ft_toupper(int c);
 
 int				ft_tolower(int c);
+
+int				ft_strcmp_ignore_case(const char *s1, const char *s2);
 
 #endif

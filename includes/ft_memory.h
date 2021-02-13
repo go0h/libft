@@ -6,7 +6,7 @@
 /*   By: astripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/02 19:28:08 by astripeb          #+#    #+#             */
-/*   Updated: 2020/06/17 20:18:18 by astripeb         ###   ########.fr       */
+/*   Updated: 2021/02/13 19:14:11 by astripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 void			ft_bzero(void *s, size_t n);
 
 void			*ft_memalloc(size_t size);
+
+void			*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 
